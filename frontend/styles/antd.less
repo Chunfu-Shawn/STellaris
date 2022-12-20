@@ -1,0 +1,91 @@
+@import '~antd/es/style/themes/default.less';
+@import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
+
+@primary-color: #2b0f75; // 全局主色
+@layout-body-background: #f4f3f5;
+@link-color: #7e5ef6,
+
+// fix the conflict between antd style and mui style
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+}
+
+.ant-checkbox-::after {
+  width: 13.714286px;
+  height: 23.142857px;
+}
+//更改collapse下 次collapse的header样式
+.ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
+  color: #6744a2;
+  padding: 0px;
+}
+//更改collapse下 次collapse 的context-box样式
+.ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-content > .ant-collapse-content-box {
+  padding: 1px;
+}
+
+.filter-checkbox {
+  width: auto;
+  /* 因为 content 会另起一行，影响样式的话，height 设置为具体的值可以避免高度变高的情况 */
+  height: auto;
+  /* 设置元素两端对齐 */
+  text-align: justify;
+}
+.ant-anchor-ink::before {
+  background-color: rgba(125, 85, 246, 0.58);
+}
+.ant-anchor-link > .ant-anchor-link-title {
+  font-size: 17px;
+  color: rgba(114, 113, 113, 0.57);
+}
+.ant-anchor-link-active > .ant-anchor-link-title {
+  color: #590ee1;
+  font-size: 18px;
+  font-weight: 600;
+}
+.ant-tree.ant-tree-directory .ant-tree-treenode {
+  border: 1px #e3e2e2;
+  border-bottom-style: inset;
+  padding: 8px;
+  color: #575757;
+}
+.ant-tree.ant-tree-directory .ant-tree-treenode :focus{
+  border: 1px #e3e2e2;
+  border-bottom-style: inset;
+  padding: 8px;
+  color: #575757;
+  background-color: #b7b7b7;
+}
+.ant-tree.ant-tree-directory .ant-tree-treenode-selected:hover::before,
+.ant-tree.ant-tree-directory .ant-tree-treenode-selected::before {
+  border: 1px #e3e2e2;
+  border-bottom-style: inset;
+  padding: 8px;
+  color: #575757;
+  background-color: #888888;
+}
+.ant-tree-title{
+  margin: 8px;
+}
+
+.ant-steps-item-title{
+  font-size: 20px;
+}
+
+// main page
+.mainGuidance .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title
+{
+  color: white;
+}
+.mainGuidance .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description
+{
+  color: lightgray;
+}
+.mainGuidance .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon
+{
+  color: #7653de;
+}
+.mainGuidance .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after
+{
+  background-color: #ccb1ee;
+}
