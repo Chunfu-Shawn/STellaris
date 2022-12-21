@@ -15,7 +15,7 @@ export function getRunningJobNumber() {
         // 连接数据库
         connection.connect()
         // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-        let countSql = `select COUNT(rid) as running_job_number from job_mapping_queue where status="running"`;
+        let countSql = `select COUNT(id) as running_job_number from job_mapping_queue where status="running"`;
         // 根据rid更新任务状态
         connection.query(countSql,  (err,result) => {
             if (err) {

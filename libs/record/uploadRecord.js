@@ -1,7 +1,7 @@
 import fs from "fs"
 import { v1 as uuidv1 } from 'uuid'
 import mysql from 'mysql'
-import {annotationLogger, pad} from "./logSave.js";
+import {annotationLogger, pad} from "../logSave.js";
 // 数据库的配置选项
 
 const options = {

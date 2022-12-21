@@ -1,7 +1,7 @@
 import fs from "fs"
 import child_process from 'child_process';
 import {annotationLogger} from "./logSave.js";
-import {setJobStatus} from "record/setJobStatus.js";
+import {setJobStatus} from "./record/setJobStatus.js";
 import removeUploadFiles from "./removeUploadFiles.js";
 
 export async function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath,
