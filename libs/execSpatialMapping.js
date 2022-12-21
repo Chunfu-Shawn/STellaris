@@ -8,8 +8,8 @@ import {getJobInfo} from "./api/getJobInfo.js";
 
 export async function execNicheAnchor(rid, nBootstrap = 20, nThreads=30) {
     const record = await getJobInfo(rid)
-    const dataset = record.dataset
-    const section = record.section
+    const dataset = record.dataset_id
+    const section = record.section_id
     const divergenceCutoff = record.cutoff
     const bandWidth = record.band_width
     const resultPath = record.result_path
