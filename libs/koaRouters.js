@@ -1,14 +1,14 @@
 // 导入router路由middleware
 import router from 'koa-router'
 import {uploadFile} from "./uploadFile.js"
-import {uploadRecord} from "./uploadRecord.js"
+import {uploadRecord} from "record/uploadRecord.js"
 import {execNicheAnchor} from "./execNicheAnchor.js"
 import {sendMail} from "./sendEmail.js"
 import {annotationLogger} from "./logSave.js";
 import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
 import {getJobInfo} from "./api/getJobInfo.js";
-import {setJobMappingInfo} from "./setJobMappingInfo.js";
+import {setJobMappingInfo} from "record/setJobMappingInfo.js";
 import copyExampleFiles from "./copyExampleFiles.js";
 
 

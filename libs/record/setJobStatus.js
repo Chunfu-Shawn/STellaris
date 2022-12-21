@@ -1,5 +1,5 @@
 import mysql from "mysql";
-import {annotationLogger} from "./logSave.js";
+import {annotationLogger} from "../logSave.js";
 
 const options = {
     host: 'localhost',//主机名

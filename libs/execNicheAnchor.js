@@ -1,6 +1,6 @@
 import fs from "fs"
 import child_process from 'child_process';
-import {setJobStatus} from "./setJobStatus.js";
+import {setJobStatus} from "record/setJobStatus.js";
 import {annotationLogger} from "./logSave.js";
 import {execReCompress} from "./execReCompress.js";
 import removeUploadFiles from "./removeUploadFiles.js";
