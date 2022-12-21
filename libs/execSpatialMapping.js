@@ -6,7 +6,7 @@ import {execReCompress} from "./execReCompress.js";
 import removeUploadFiles from "./removeUploadFiles.js";
 import {getJobInfo} from "./api/getJobInfo.js";
 
-export async function execNicheAnchor(rid, nBootstrap = 20, nThreads=30) {
+export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
     const record = await getJobInfo(rid)
     const dataset = record.dataset_id
     const section = record.section_id
