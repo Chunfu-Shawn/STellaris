@@ -24,6 +24,7 @@ export function setJobStatus(rid, time, status) {
         connection.query(updateSql, [status, finishTime.toISOString(), rid], (err) => {
             if (err) {
                 annotationLogger.log(`[${new Date().toLocaleString()}] Error: there is error happened in MySQL: ${err.message}`)
+                reject(err)
             } else {
                 annotationLogger.log(`[${new Date().toLocaleString()}]: Set the status of ${rid} to "${status}" in MySQL.`)
                 //resolve 放在query回调函数里面

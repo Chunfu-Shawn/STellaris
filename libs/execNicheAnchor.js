@@ -4,9 +4,16 @@ import {setJobStatus} from "./setJobStatus.js";
 import {annotationLogger} from "./logSave.js";
 import {execReCompress} from "./execReCompress.js";
 import removeUploadFiles from "./removeUploadFiles.js";
+import {getJobInfo} from "./api/getJobInfo.js";
 
-export async function execNicheAnchor(rid, dataset, section, divergenceCutoff, bandWidth,
-                                species, resultPath, nBootstrap = 20, nThreads=30) {
+export async function execNicheAnchor(rid, nBootstrap = 20, nThreads=30) {
+    const record = await getJobInfo(rid)
+    const dataset = record.dataset
+    const section = record.section
+    const divergenceCutoff = record.cutoff
+    const bandWidth = record.band_width
+    const resultPath = record.result_path
+    const species = record.species
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
     const command =

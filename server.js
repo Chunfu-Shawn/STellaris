@@ -11,6 +11,9 @@ import {accessLogger} from "./libs/logSave.js"
 import schedule from 'node-schedule'
 // remove files
 import rmFiles from './libs/one-week-files-delete.js'
+import {getRunningJobNumber} from "./libs/queue/getRunningJobNumber.js";
+import {getPriorWaitingJob} from "./libs/queue/getPriorWaitingJob.js";
+import {updateJob2Running} from "./libs/queue/updateJob2Running.js";
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -76,13 +79,28 @@ app.prepare().then(() => {
         // run
         rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS)
     });
-    // run every second
-    let jobQueueJob = schedule.scheduleJob("* * * * * ?", () => {
-        //console.log(new Date().toLocaleString())
+    // run every 2 second
+    let jobQueueJob = schedule.scheduleJob("*/2 * * * * ?", async () => {
+        let { running_job_number: runningJobNumber } = await getRunningJobNumber()
+        // if there are 2 running jobs
+        if( runningJobNumber < 2 ){
+            // get first waiting job
+            let waitingJob = await getPriorWaitingJob()
+            if( waitingJob ){
+                // if there is a waiting job
+                await updateJob2Running(waitingJob.rid)
+                console.log("Run this job: " + waitingJob.rid)
+            }else {
+                // if there is not a waiting job
+
+            }
+        }else {
+
+        }
     });
 
-    server.listen(3000, () => {
-        console.log('server is running at http://localhost:3000')
+    server.listen(3001, () => {
+        console.log('server is running at http://localhost:3001')
     })
 })
 

@@ -67,12 +67,9 @@ Router.post('/mapping/annotate', async (ctx) => {
         try {
             const { rid, datasetId, sectionId, cutoff, bandWidth } = ctx.request.body
             await setJobMappingInfo(rid, datasetId, sectionId, cutoff, bandWidth)
-            const record = await getJobInfo(rid)
-            const resultPath = record.result_path
-            const species = record.species
             annotationLogger.log(`[${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            await execNicheAnchor(rid, datasetId, sectionId, cutoff, bandWidth, species, resultPath);
+            await execNicheAnchor(rid);
         } catch (err) {
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in NicheAnchor: ${err}`)
         }
