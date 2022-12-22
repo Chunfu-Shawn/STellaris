@@ -32,7 +32,7 @@ Router.post('/mapping/upload',
         }).then(
         ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
             // run section blast
-            annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
+            annotationLogger.log(`>${rid} [${new Date().toLocaleString()}]: start section blast`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
             // send mail
             ctx.request.body.emailAddress === "undefined" ||
@@ -48,14 +48,14 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
         ctx.body = {rid: rid}
         annotationLogger.log(`>>> ${rid}:[${new Date().toLocaleString()}]: upload data`)
         // copy processed example files to improve efficiency
-        copyExampleFiles(matrixFilePath, resultPath)
+        copyExampleFiles(rid, matrixFilePath, resultPath)
         // run sections matching species, organ and tissue
         const [datasets, sections] = await selectSection(resultPath, species, organ, tissue)
         return ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath])
     }).then(
         ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
             // run section blast
-            annotationLogger.log(`[${new Date().toLocaleString()}]: start ST screening`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         })
     .catch((err)=>{
@@ -68,12 +68,12 @@ Router.post('/mapping/annotate', async (ctx) => {
         try {
             const { rid, datasetId, sectionId, cutoff, bandWidth } = ctx.request.body
             await setJobMappingInfo(rid, datasetId, sectionId, cutoff, bandWidth)
-            annotationLogger.log(`[${new Date().toLocaleString()}]: start mapping`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
             await setJobStatus(rid,  "waiting")
             await insertWaitingJob(rid);
         } catch (err) {
-            annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in NicheAnchor: ${err}`)
+            annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in Spatial Mapping: ${err}`)
         }
     }
 )

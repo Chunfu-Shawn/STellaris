@@ -38,35 +38,35 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         //如果python脚本不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
+        annotationLogger.log(`>${rid} [${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else if(!fs.existsSync(sc_h5ad_Path)) {
         //如果空间数据不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
-        annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
+        annotationLogger.log(`>${rid} [${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
     } else {
         try {
-            annotationLogger.log(`[${new Date().toLocaleString()}]: Spatial mapping running...`)
+            annotationLogger.log(`>${rid} [${new Date().toLocaleString()}]: Spatial mapping running...`)
             // 改变任务状态为running，设置任务开始时间
             await setJobStatus(rid,"running")
             await setJobTime(rid, "ann_start_time")
             let annoProcess = child_process.exec(command)
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
-                annotationLogger.log(`[${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
+                annotationLogger.log(`>${rid} [${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
                 if (code === 0) {
                     setJobStatus(rid, "finished")
-                    execReCompress(resultPath)
+                    execReCompress(rid, resultPath)
                 }
                 else {
                     setJobStatus(rid,"error")
-                    removeUploadFiles(resultPath)
+                    removeUploadFiles(rid, resultPath)
                 }
                 setJobTime(rid, "ann_finish_time")
                 updateJob2Finished(rid)
             });
         } catch (err) {
-            annotationLogger.log(`[${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`>${rid} [${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

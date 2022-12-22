@@ -98,7 +98,7 @@ app.prepare().then(() => {
                 // if there is not a waiting job
             }
         }else {
-            // if there is 2 running jobs
+            // if there are 2 running jobs
         }
     });
 
