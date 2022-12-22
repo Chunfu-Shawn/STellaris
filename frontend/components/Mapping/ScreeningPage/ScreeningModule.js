@@ -1,7 +1,7 @@
 import ReqStatus from "../ReqStatus.js";
 import {Card, Col, Divider, Row} from "antd";
 import MappingSteps from "../MappingSteps";
-import React,{useContext, useEffect, useState} from "react";
+import React,{useContext} from "react";
 import {SyncOutlined} from "@ant-design/icons";
 import AttributeLayout from "../../GenePage/AttributeLayout";
 import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
@@ -9,15 +9,7 @@ import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 
 export default function ScreeningModule(){
     const annContext = useContext(AnnContext);
-    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime));
-    const fetchTime = async () => {
-        fetch("/api/server-time")
-            .then(res => res.json())
-            .then(json => setNowTime(Date.parse(json.serverTime)))
-    }
-    useEffect(()=>{
-        fetchTime()
-    },[])
+
     return(
         <div className="modal-body-stw" >
             <MappingSteps current={1}/>
@@ -50,7 +42,6 @@ export default function ScreeningModule(){
                 <Col span={12}>
                     <ReqStatus style={{width: 600,margin:"50px auto"}}
                                type={"screening"}
-                               nowTime={nowTime}
                     />
                 </Col>
             </Row>

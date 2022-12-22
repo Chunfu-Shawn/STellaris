@@ -1,6 +1,6 @@
 import ReqStatus from "./ReqStatus.js";
 import MappingSteps from "./MappingSteps";
-import React,{useContext, useEffect, useState} from "react";
+import React,{useContext} from "react";
 import {Card, Col, Divider, Row} from "antd";
 import AttributeLayout from "../GenePage/AttributeLayout";
 import {SyncOutlined} from "@ant-design/icons";
@@ -9,16 +9,7 @@ import {AnnContext} from "../../pages/mapping/resultPage/[rid]";
 
 export default function RunningModule(){
     const annContext = useContext(AnnContext);
-    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime)+1000);
-    //refresh server time
-    const fetchTime = async () => {
-        fetch("/api/server-time")
-            .then(res => res.json())
-            .then(json => setNowTime(Date.parse(json.serverTime)))
-    }
-    useEffect(()=>{
-        fetchTime()
-    },[])
+
     return(
         <div className="modal-body-stw" >
             <MappingSteps current={3}/>

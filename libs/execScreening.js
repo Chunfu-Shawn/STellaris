@@ -25,22 +25,22 @@ export async function execScreening(rid, matrixFilePath, labelsFilePath, dataset
         // 改变任务状态为running，设置任务开始时间
         await setJobStatus(rid, "error")
         await setJobTime(rid, "screen_finish_time")
-        annotationLogger.log(`>${rid} [${new Date().toLocaleString()}] Error: ST screening script not found !`)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: ST screening script not found !`)
     } else if (!fs.existsSync(matrixFilePath) && !fs.existsSync(labelsFilePath)) {
         //如果空间数据不存在
         await setJobStatus(rid,  "error")
         await setJobTime(rid, "screen_finish_time")
-        annotationLogger.log(`>${rid} [${new Date().toLocaleString()}] Error: scRNA-seq data not found !`)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: scRNA-seq data not found !`)
     } else {
         try {
-            annotationLogger.log(`>${rid} [${new Date().toLocaleString()}]: ST screening running...`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: ST screening running...`)
             // 改变任务状态为screening，设置任务开始时间
             await setJobStatus(rid,  "screening")
             await setJobTime(rid, "upload_time")
             const screenProcess = child_process.exec(command)
             // 监听screenProcess任务的exit事件，如果发生则调用listener
             screenProcess.on('exit', function (code) {
-                annotationLogger.log(`>${rid} [${new Date().toLocaleString()}]: child process 'ST screening' has exited，exit code: ${code}`)
+                annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: child process 'ST screening' has exited，exit code: ${code}`)
                 if (code === 0)
                     setJobStatus(rid,  "selecting")
                 else {
@@ -50,7 +50,7 @@ export async function execScreening(rid, matrixFilePath, labelsFilePath, dataset
                 setJobTime(rid, "screen_finish_time")
             })
         } catch(err) {
-            annotationLogger.log(`>${rid} [${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Error of reading/writing file from disk or python running: ${err}`)
         }
     }
 }

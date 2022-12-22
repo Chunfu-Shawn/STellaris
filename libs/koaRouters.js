@@ -32,7 +32,7 @@ Router.post('/mapping/upload',
         }).then(
         ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
             // run section blast
-            annotationLogger.log(`>${rid} [${new Date().toLocaleString()}]: start section blast`)
+            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
             execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
             // send mail
             ctx.request.body.emailAddress === "undefined" ||
