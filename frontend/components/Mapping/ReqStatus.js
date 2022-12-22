@@ -8,7 +8,7 @@ import {calTime} from "../util";
 export default function ReqStatus(props){
     const annContext = useContext(AnnContext);
     const [usedTime, setUsedTime] = useState(" ");
-    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime)+2000);
+    const [nowTime, setNowTime] = useState(props.nowTime);
     let startTime = new Date().toTimeString()
 
     if( props.type === "screening"){
