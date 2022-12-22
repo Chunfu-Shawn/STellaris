@@ -41,7 +41,6 @@ export default function RunningModule(){
                 <Col span={12}>
                     <ReqStatus style={{width: 600, margin:"50px auto"}}
                                type={"annotating"}
-                               nowTime={nowTime}
                     />
                 </Col>
             </Row>
