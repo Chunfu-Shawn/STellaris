@@ -9,21 +9,21 @@ const options = {
     database: 'spatial_trans_web'//要操作的数据库
 }
 
-export function updateJob2Running(rid) {
+export function getWaitingJobNumber() {
     return new Promise( (resolve, reject)=>{
         let connection = mysql.createConnection(options)
         // 连接数据库
         connection.connect()
         // 使用 ? 做为查询参数占位符，在其内部自动调用 connection.escape() 方法对传入参数进行编码，防止sql注入
-        let updateSql = `UPDATE job_mapping_queue SET status = 'running', version = version + 1 
-                        WHERE version = "0" AND rid = ?`;
+        let countSql = `select COUNT(id) as waiting_job_number from job_mapping_queue where status="waiting"`;
         // 根据rid更新任务状态
-        connection.query(updateSql, [rid], (err) => {
+        connection.query(countSql,  (err,result) => {
             if (err) {
                 reject(err)
             } else {
-                resolve()
+                resolve(JSON.parse(JSON.stringify(result))[0])
             }
+
         });
         connection.end()
     })

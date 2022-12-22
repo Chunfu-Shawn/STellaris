@@ -14,6 +14,9 @@ import rmFiles from './libs/one-week-files-delete.js'
 import {getRunningJobNumber} from "./libs/queue/getRunningJobNumber.js";
 import {getPriorWaitingJob} from "./libs/queue/getPriorWaitingJob.js";
 import {updateJob2Running} from "./libs/queue/updateJob2Running.js";
+import {execSpatialMapping} from "./libs/execSpatialMapping.js";
+import {getWaitingJobNumber} from "./libs/queue/getWaitingJobNumber.js";
+import {getWaitingOrder} from "./libs/queue/getWaitingOrder.js";
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -88,18 +91,18 @@ app.prepare().then(() => {
             let waitingJob = await getPriorWaitingJob()
             if( waitingJob ){
                 // if there is a waiting job
-                await updateJob2Running(waitingJob.rid)
                 console.log("Run this job: " + waitingJob.rid)
+                await updateJob2Running(waitingJob.rid)
+                await execSpatialMapping(waitingJob.rid);
             }else {
                 // if there is not a waiting job
-
             }
         }else {
-
+            // if there is 2 running jobs
         }
     });
 
-    server.listen(3001, () => {
+    server.listen(3000, () => {
         console.log('server is running at http://localhost:3001')
     })
 })

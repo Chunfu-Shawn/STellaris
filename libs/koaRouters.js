@@ -9,6 +9,8 @@ import {selectSection} from "./selectSection.js";
 import {execScreening} from "./execScreening.js";
 import {setJobMappingInfo} from "./record/setJobMappingInfo.js";
 import copyExampleFiles from "./copyExampleFiles.js";
+import {insertWaitingJob} from "./queue/insertWaitingJob.js";
+import {setJobStatus} from "./record/setJobStatus.js";
 
 
 export const Router = router()
@@ -68,7 +70,8 @@ Router.post('/mapping/annotate', async (ctx) => {
             await setJobMappingInfo(rid, datasetId, sectionId, cutoff, bandWidth)
             annotationLogger.log(`[${new Date().toLocaleString()}]: start mapping`)
             // 运行Tangram, 传入Koa的context包装的request对象，和response对象
-            await execSpatialMapping(rid);
+            await setJobStatus(rid,  "waiting")
+            await insertWaitingJob(rid);
         } catch (err) {
             annotationLogger.log(`[${new Date().toLocaleString()}] Error: There is a wrong happened in NicheAnchor: ${err}`)
         }

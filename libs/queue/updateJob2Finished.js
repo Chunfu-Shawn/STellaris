@@ -9,7 +9,7 @@ const options = {
     database: 'spatial_trans_web'//要操作的数据库
 }
 
-export function updateJob2Running(rid) {
+export function updateJob2Finished(rid) {
     return new Promise( (resolve, reject)=>{
         let connection = mysql.createConnection(options)
         // 连接数据库
