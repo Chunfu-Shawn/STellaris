@@ -1,5 +1,6 @@
 #topheader {
-  text-align: center
+  text-align: center;
+  min-width: 1440px;
 }
 
 #footer {

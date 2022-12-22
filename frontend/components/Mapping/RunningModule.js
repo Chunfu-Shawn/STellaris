@@ -9,7 +9,7 @@ import {AnnContext} from "../../pages/mapping/resultPage/[rid]";
 
 export default function RunningModule(){
     const annContext = useContext(AnnContext);
-    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime));
+    const [nowTime, setNowTime] = useState(Date.parse(annContext.serverTime)+1000);
     //refresh server time
     const fetchTime = async () => {
         fetch("/api/server-time")
