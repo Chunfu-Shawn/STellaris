@@ -5,27 +5,27 @@ const { Sider } = Layout;
 
 const items = [
     {
-        label: <Link href={'/tutorial'}>Overview</Link>, key: 'Overview',
+        label: <a href={'/tutorial'}>Overview</a>, key: 'Overview',
     },{
         label: "Spatial Mapping", key: 'Spatial Mapping',
         children:
             [
                 {
-                    label: <Link href={'/tutorial/mapping/getStarted'}>Get started</Link>, key: 'Get started',
+                    label: <a href={'/tutorial/mapping/getStarted'}>Get started</a>, key: 'Get started',
                 },
                 {
-                    label: <Link href={'/tutorial/mapping/result'}>Result interpretation</Link>, key: 'Result interpretation',
+                    label: <a href={'/tutorial/mapping/result'}>Result interpretation</a>, key: 'Result interpretation',
                 },
                 {
-                    label: <Link href={'/tutorial/mapping/exApp'}>Expanded application</Link>, key: 'MutiOmics',
+                    label: <a href={'/tutorial/mapping/exApp'}>Expanded application</a>, key: 'MutiOmics',
                 }
             ],
     },
     {
-        label: <Link href={'/tutorial/datasets'}>Dataset Browser</Link>, key: 'Dataset Browser'
+        label: <a href={'/tutorial/datasets'}>Dataset Browser</a>, key: 'Dataset Browser'
     },
     {
-        label: <Link href={'/tutorial/gene'}>Gene Search</Link>, key: 'Gene Search',
+        label: <a href={'/tutorial/gene'}>Gene Search</a>, key: 'Gene Search',
     },
 
 ]

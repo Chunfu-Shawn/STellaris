@@ -2,11 +2,10 @@
 import router from 'koa-router'
 import {uploadFile} from "./uploadFile.js"
 import {uploadRecord} from "./record/uploadRecord.js"
-import {execSpatialMapping} from "./execSpatialMapping.js"
 import {sendMail} from "./sendEmail.js"
 import {annotationLogger} from "./logSave.js";
 import {selectSection} from "./selectSection.js";
-import {execScreening} from "./execScreening.js";
+import {execSectionBlast} from "./execSectionBlast.js";
 import {setJobMappingInfo} from "./record/setJobMappingInfo.js";
 import copyExampleFiles from "./copyExampleFiles.js";
 import {insertWaitingJob} from "./queue/insertWaitingJob.js";
@@ -33,7 +32,7 @@ Router.post('/mapping/upload',
         ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
             // run section blast
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
-            execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
+            execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
             // send mail
             ctx.request.body.emailAddress === "undefined" ||
             sendMail(ctx.request.body.emailAddress, rid, annotationLogger.log)
@@ -56,7 +55,7 @@ Router.post('/mapping/demo', async (ctx) => uploadRecord(ctx).then(
         ([rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath]) => {
             // run section blast
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: start section blast`)
-            execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
+            execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath)
         })
     .catch((err)=>{
         annotationLogger.log(`[${new Date().toLocaleString()}] Error: A bad upload happened: ${err}`)

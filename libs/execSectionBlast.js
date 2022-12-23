@@ -5,8 +5,8 @@ import {setJobStatus} from "./record/setJobStatus.js";
 import removeUploadFiles from "./removeUploadFiles.js";
 import {setJobTime} from "./record/setJobTime.js";
 
-export async function execScreening(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath,
-                                    nThreads = 30) {
+export async function execSectionBlast(rid, matrixFilePath, labelsFilePath, datasets, sections, resultPath,
+                                       nThreads = 30) {
     const stScreening = 'scripts/ST_screening/ST_screening.sh'
     const command =
         "bash " + stScreening +

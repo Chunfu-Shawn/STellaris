@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import nextjs from 'next'
+import { parse } from 'url'
 import bodyParser from 'koa-bodyparser'
 // 导入koa router对象
 import {Router} from './libs/koaRouters.js'
@@ -15,8 +16,6 @@ import {getRunningJobNumber} from "./libs/queue/getRunningJobNumber.js";
 import {getPriorWaitingJob} from "./libs/queue/getPriorWaitingJob.js";
 import {updateJob2Running} from "./libs/queue/updateJob2Running.js";
 import {execSpatialMapping} from "./libs/execSpatialMapping.js";
-import {getWaitingJobNumber} from "./libs/queue/getWaitingJobNumber.js";
-import {getWaitingOrder} from "./libs/queue/getWaitingOrder.js";
 
 // Determine whether it is a production environment
 const dev = process.env.NODE_ENV !== 'production'
@@ -60,11 +59,19 @@ app.prepare().then(() => {
 
     // for NextJs router 在koa路由中未定义的，将交给nextjs路由继续处理
     server.use(async (ctx) => {
-        // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架
-        // 让nextjs全局处理其他页面的http访问
-        await handler(ctx.req, ctx.res)
-        // 屏蔽koa中对response的内置处理，让nextjs来接手
-        ctx.response = false
+        try{
+            const parsedUrl = parse(ctx.req.url, true)
+            const { pathname, query } = parsedUrl
+            // 传入Node原生的req对象，和res对象，因为Nextjs框架需要兼容许多基于Node封装的web框架
+            // 让nextjs全局处理其他页面的http访问
+            await handler(ctx.req, ctx.res, parsedUrl)
+            // 屏蔽koa中对response的内置处理，让nextjs来接手
+            //ctx.response = false
+        } catch (err) {
+            console.error('Error occurred handling', ctx.req.url, err)
+            ctx.res.statusCode = 500
+            ctx.res.end('internal server error')
+        }
     })
 
     // crontab for remove decrepit files

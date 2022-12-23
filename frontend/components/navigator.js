@@ -92,22 +92,20 @@ export default function Navigator(){
         <nav id="topheader" className="navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div>
-                    <Link href="/" >
-                        <a className="navbar-brand">
-                            <Image src={"/images/brand.svg"} alt={"logo"} width={135} height={35}/>
-                        </a>
-                    </Link>
+                    <a className="navbar-brand" href="/">
+                        <Image src={"/images/brand.svg"} alt={"logo"} width={135} height={35}/>
+                    </a>
                 </div>
                 {
                     //width < breakpoint ? collapseButtom:
                     <ul className={"nav navbar-nav"} >
-                        <li id="mapping" className="nav-item"><Link href="/mapping" className="nav-link" ><a>Mapping</a></Link></li>
-                        <li id="datasets" className="nav-item"><Link href="/datasets" className="nav-link" ><a>Datasets</a></Link></li>
-                        <li id="search" className="nav-item"><Link href="/search" className="nav-link" ><a>Search</a></Link></li>
-                        <li id="tutorial" className="nav-item"><Link href="/tutorial" className="nav-link" ><a>Tutorial</a></Link></li>
-                        <li id="help" className="nav-item"><Link href="/help/manual/mapping" className="nav-link" ><a>Help</a></Link></li>
-                        <li id="about" className="nav-item"><Link href="/about" className="nav-link" ><a>About</a></Link></li>
-                        <li id="contact" className="nav-item"><Link href="/contact" className="nav-link" ><a>Contact</a></Link></li>
+                        <li id="mapping" className="nav-item"><a href="/mapping" className="nav-link" >Mapping</a></li>
+                        <li id="datasets" className="nav-item"><a href="/datasets" className="nav-link" >Datasets</a></li>
+                        <li id="search" className="nav-item"><a href="/search" className="nav-link" >Search</a></li>
+                        <li id="tutorial" className="nav-item"><a href="/tutorial" className="nav-link" >Tutorial</a></li>
+                        <li id="help" className="nav-item"><a href="/help/manual/mapping" className="nav-link" >Help</a></li>
+                        <li id="about" className="nav-item"><a href="/about" className="nav-link" >About</a></li>
+                        <li id="contact" className="nav-item"><a href="/contact" className="nav-link" >Contact</a></li>
                     </ul>
                 }
             </div>

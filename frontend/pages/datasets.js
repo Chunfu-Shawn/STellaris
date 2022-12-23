@@ -37,15 +37,15 @@ export default function Datasets() {
                         </Col>
                     </Row>
                     <div className={"lead"} id={"bottoms"}>
-                        <Link href={"/datasets/allarchive"}>
+                        <a href={"/datasets/allarchive"}>
                             <button type="button" className="btn btn-alldata btn-lg">All</button>
-                        </Link>
-                        <Link href={"/datasets/humanarchive"}>
+                        </a>
+                        <a href={"/datasets/humanarchive"}>
                             <button type="button" className="btn btn-data btn-lg">Human Archive</button>
-                        </Link>
-                        <Link href={"/datasets/mousearchive"}>
+                        </a>
+                        <a href={"/datasets/mousearchive"}>
                             <button type="button" className="btn btn-data btn-lg">Mouse Archive</button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

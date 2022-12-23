@@ -13,9 +13,8 @@ export default function RunningModule(){
             <Divider/>
             <h2>Wait to Start Spatial Mapping</h2>
             <div style={{margin:"0px auto",marginTop:20}}>
-                <p style={{fontSize:16,width:500,margin:"0px auto"}}>
-                    Your job is in the queue. If the server is free, your job will start to perform spatial mapping
-                    automatically.
+                <p style={{fontSize:16,width:600,margin:"0px auto"}}>
+                    Your job is in the queue. If the server is free, your job will start automatically.
                 </p>
                 <LoadingOutlined style={{fontSize:40,margin:"30px auto"}}/>
                 <div style={
@@ -23,7 +22,7 @@ export default function RunningModule(){
                         margin:"auto",
                         width:600,
                         marginTop:20,
-                        padding:"10px 20px",
+                        padding:"20px 20px",
                         textAlign:"left",
                         borderRadius:10,
                         backgroundColor:"#f6f6f6"
