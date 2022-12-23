@@ -28,7 +28,7 @@ export default function Features(props){
             title: 'Ensembl ID',
             dataIndex: 'ensembl_id',
             width:'20%',
-            render: (text) => <a href={`/search/genePage/${text}`} target={'_blank'}>{text}</a>,
+            render: (text) => <a href={`/search/genePage/${text}`} target={'_blank'} rel={'noreferrer'}>{text}</a>,
             sorter: (a, b) => {
                 if(a.ensembl_id > b.ensembl_id) return 1
                 else return -1
@@ -89,7 +89,7 @@ export default function Features(props){
             <a id={"Features"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                 <span style={{fontSize:22}}>Features </span>
-                <a href={'/help/manual/datasets#identification_svg'} target={"_blank"}>
+                <a href={'/help/manual/datasets#identification_svg'} target={"_blank"} rel={'noreferrer'}>
                     <QuestionCircleOutlined/>
                 </a>
             </Divider>

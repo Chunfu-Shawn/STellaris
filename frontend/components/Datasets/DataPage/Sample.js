@@ -11,7 +11,7 @@ export default function Sample(props){
             <a id={"Sample"} style={{position: 'relative', top: "-150px"}}></a>
             <Divider orientation="left" orientationMargin="0" style={{marginTop:50}}>
                 <span style={{fontSize:22}}>Sample </span>
-                <a href={'/help/manual/datasets#data_page_attributes'} target={"_blank"}>
+                <a href={'/help/manual/datasets#data_page_attributes'} target={"_blank"} rel={'noreferrer'}>
                     <QuestionCircleOutlined/>
                 </a>
             </Divider>

@@ -26,7 +26,7 @@ export default function SVExpressionTable(){
                     value: item
                 }
             }),
-            render: text => <a href={'/datasets/dataPage/'+text} target={"_blank"}>{text}</a>,
+            render: text => <a href={'/datasets/dataPage/'+text} target={"_blank"} rel={'noreferrer'}>{text}</a>,
             onFilter: (value, record) => record.id.indexOf(value) === 0,
             filterSearch: true,
         },
