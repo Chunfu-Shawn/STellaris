@@ -100,7 +100,11 @@ app.prepare().then(() => {
                 // if there is a waiting job
                 console.log("Run this job: " + waitingJob.rid)
                 await updateJob2Running(waitingJob.rid)
-                await execSpatialMapping(waitingJob.rid);
+                    .then(
+                        () => {
+                            execSpatialMapping(waitingJob.rid)
+                        }
+                    ).catch( err => console.log(err))
             }else {
                 // if there is not a waiting job
             }

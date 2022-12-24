@@ -92,9 +92,11 @@ export default function Navigator(){
         <nav id="topheader" className="navbar-inverse navbar-fixed-top">
             <div className="container">
                 <div>
-                    <a className="navbar-brand" href="/">
-                        <Image src={"/images/brand.svg"} alt={"logo"} width={135} height={35}/>
-                    </a>
+                    <Link href="/">
+                        <a className="navbar-brand" >
+                            <Image src={"/images/brand.svg"} alt={"logo"} width={135} height={35}/>
+                        </a>
+                    </Link>
                 </div>
                 {
                     //width < breakpoint ? collapseButtom:

@@ -11,11 +11,15 @@ export function updateJob2Running(rid) {
             if(err){
                 reject(err)
             }
-            connection.query(updateSql, [rid], (err) => {
+            connection.query(updateSql, [rid], (err,result) => {
                 if (err) {
                     reject(err)
                 } else {
-                    resolve()
+                    // 如果更新失败 0条记录影响
+                    let res = JSON.parse(JSON.stringify(result))
+                    if (res.affectedRows === 1)
+                        resolve()
+                    else reject(`job ${rid} has already been running`)
                 }
             });
             connection.release();

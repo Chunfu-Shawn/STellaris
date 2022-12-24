@@ -38,12 +38,12 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         //如果python脚本不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
-        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is no scripts of spatial mapping.`)
     } else if(!fs.existsSync(sc_h5ad_Path)) {
         //如果空间数据不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
-        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is a error happened while NicheAnchor running`)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is no reference ST data while perform spatial mapping.`)
     } else {
         try {
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Spatial mapping running...`)
