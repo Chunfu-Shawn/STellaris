@@ -2,7 +2,7 @@
     "apps": [
         {
             "name": "STellaris-Test",
-            "instances":"1",
+            "instances":"5",
             "instance_var": "INSTANCE_ID",
             "exec_mode": "cluster",
             "script": "./server.js",
