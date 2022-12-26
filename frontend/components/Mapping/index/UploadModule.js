@@ -26,7 +26,7 @@ export default function UploadModule(){
     ]
     return(
         <Tabs className={'border-card-wrapper'}
-              style={{paddingLeft:30,width:700,background:'rgb(243,242,246)'}}
+              style={{paddingLeft:30,width:700,background:'rgb(251,251,252)'}}
               defaultActiveKey="1"
               items={items}
               size={'large'}
