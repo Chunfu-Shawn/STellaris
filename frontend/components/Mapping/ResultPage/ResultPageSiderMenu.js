@@ -19,7 +19,7 @@ const items = [
         label: <a href={'#Interaction'}>Interactions</a>, key: 'Interaction',
     },
     {
-        label: <a href={'#Download'}>Result Download</a>, key: 'Download',
+        label: <a href={'#Download'}>Results Download</a>, key: 'Download',
     },
 
 ]

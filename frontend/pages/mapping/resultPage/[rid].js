@@ -3,7 +3,7 @@ import useSWR from "swr";
 import React from "react";
 import {Result,Button} from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
-import LayoutCustom from '../../../components/LayoutCustom.js'
+import LayoutCustom, {siteTitle} from '../../../components/LayoutCustom.js'
 import ScreeningModule from "../../../components/Mapping/ScreeningPage/ScreeningModule";
 import SelectTableModule from "../../../components/Mapping/ScreeningPage/SelectTableModule";
 import WaitingModule from "../../../components/Mapping/WaitingModule.js";
@@ -228,8 +228,6 @@ export default function ResultPage(props) {
         }
     }
 
-    let title = `STellaris | Mapping | ${props.rid}`
-
     return (
         <LayoutCustom>
             <AnnContext.Provider
@@ -246,7 +244,7 @@ export default function ResultPage(props) {
                 }
             }>
                 <Head>
-                    <title>{title}</title>
+                    <title>{`${siteTitle}| Mapping | ${props.rid}`}</title>
                 </Head>
                 {returnModule}
             </AnnContext.Provider>

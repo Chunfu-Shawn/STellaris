@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import LayoutCustom, {siteTitle} from '../components/LayoutCustom.js'
-import Link from "next/link";
 import HumanMap from '../components/Datasets/HumanMap.js'
 import MouseMap from "../components/Datasets/MouseMap.js";
 import {Col, Row} from "antd";
