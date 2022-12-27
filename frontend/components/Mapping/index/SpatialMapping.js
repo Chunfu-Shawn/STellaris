@@ -77,7 +77,7 @@ export default function SpatialMapping(props) {
                     setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
-                    file.percent = (progressEvent.loaded / progressEvent.total * 300 | 0);
+                    file.percent = (progressEvent.loaded / progressEvent.total * 380 | 0);
                     setLabelsFileList([file])
                 });
             },
