@@ -12,7 +12,7 @@ export default function MatrixFileUpload(props){
         beforeUpload: (file) => {
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
-            let limitM = 100; //MB
+            let limitM = 200; //MB
             let isMatrix = filenameArr[filenameArr.length - 2] === 'txt' ||
                 filenameArr[filenameArr.length - 2] === 'csv' ||
                 filenameArr[filenameArr.length - 2] === 'tsv';
