@@ -7,7 +7,6 @@ export default function DatasetBrowser(){
     return (
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
-                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Dataset Browser</Breadcrumb.Item>
             </Breadcrumb>

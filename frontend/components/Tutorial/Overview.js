@@ -1,5 +1,4 @@
 import {Breadcrumb, Button, Space, Typography, Image} from "antd";
-import Link from "next/link";
 import React from "react";
 import {contentStyle} from "../Help/SiderStaticMenu";
 
@@ -7,7 +6,6 @@ export default function Overview(){
     return(
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
-                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Overview</Breadcrumb.Item>
             </Breadcrumb>

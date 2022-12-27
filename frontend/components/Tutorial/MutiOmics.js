@@ -3,13 +3,12 @@ import Image from "next/image";
 import {Breadcrumb, Typography} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 import {downloadFile} from "../util";
-import Link from "next/link.js";
+
 
 export default function MutiOmics(){
     return(
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
-                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Spatial Mapping</Breadcrumb.Item>
                 <Breadcrumb.Item>Expanded application</Breadcrumb.Item>

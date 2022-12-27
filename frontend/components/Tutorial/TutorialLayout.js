@@ -2,7 +2,7 @@ import Head from 'next/head'
 import LayoutCustom, { siteTitle } from '../LayoutCustom.js'
 import {Affix, Col, Row} from 'antd';
 import React from 'react';
-import TutorialSiderMenu from "./TutorialSiderMenu";;
+import TutorialSiderMenu from "./TutorialSiderMenu";
 
 export default function TutorialLayout({children, opened, selected}) {
     return (
