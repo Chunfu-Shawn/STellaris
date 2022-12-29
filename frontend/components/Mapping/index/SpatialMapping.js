@@ -64,6 +64,7 @@ export default function SpatialMapping(props) {
         formData.append('species', species)
         formData.append('organ', organ)
         formData.append('tissue', tissue)
+        formData.append('type', "scRNA-seq")
         formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
