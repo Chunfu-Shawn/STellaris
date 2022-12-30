@@ -168,15 +168,34 @@ export default function ManualMapping() {
                 <a id={"advanced_parameters"} style={{position: 'relative', top: "-150px"}}></a>
                 <ol>
                     <li>
-                        <b>bandwidth</b>: a parameter associated with ST spots density and kernel smoothness (see
+                        <b>KNN number</b>: Number of nearest neighboring cells to determine coembedding filtering cutoff,
+                        0 means skipping coembedding filtering [default: 50].
+                    </li>
+                    <li>
+                        <b>Number of spots</b>: Number of top-ranked nearest spots for each cell to keep in sparse graph
+                        for spatial mapping, the higher the value, the more spatial locations the cell may be assigned
+                        to [default: 10].
+                    </li>
+                    <li>
+                        <b>Number of cells</b>: Number of top-ranked nearest cells for each spot to keep in sparse graph
+                        for spatial mapping, the higher the value, the more cells may succeed in mapping to spatial locations
+                        [default: 10].
+                    </li>
+                    <li>
+                        <b>Redundancy</b>: The tolerance of redundancy, which means the maximum number of spots to which
+                        a cell is allowed to map. This value must be lower than the smaller value of n_spots and n_cells
+                        [default: 1].
+                    </li>
+                    <li>
+                        <b>Bandwidth</b>: a parameter associated with ST spots density and kernel smoothness (see
                         <a href={"https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KernelDensity.html"}
                               target={"_blank"} rel={"noreferrer"}>
                             &nbsp;KernelDensity
-                        </a>); if users
-                        want to distinguish cell types distribution better, turning down the bindwidth will be benificial.
+                        </a>); if users want to distinguish cell types distribution better, turning down the bindwidth
+                        will be benificial.
                     </li>
                     <li>
-                        <b>divergence cutoff</b>: a parameter equal to percentage of top retained colocalization relation
+                        <b>Divergence cutoff</b>: a parameter equal to percentage of top retained colocalization relation
                         of cell type pairs according to MST consensus matrix; if users want to investigate the most
                         significant microenvironments of cell types colocalization, turning down the cutoff will be benificial.
                     </li>
