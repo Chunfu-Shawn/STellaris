@@ -99,11 +99,11 @@ export default function MappingForSingleCellMultiomics(props) {
                 })
                 fragmentsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 112 | 0);
-                    setLabelsFileList([file])
+                    setFragmentsFileList([file])
                 })
                 peakFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 277 | 0);
-                    setLabelsFileList([file])
+                    setPeakFileList([file])
                 })
             },
         }).then(response => response.data)
@@ -116,6 +116,14 @@ export default function MappingForSingleCellMultiomics(props) {
                 labelsFileList.forEach((file) => {
                     file.status = 'done'
                     setLabelsFileList([file])
+                });
+                fragmentsFileList.forEach((file) => {
+                    file.status = 'done'
+                    setFragmentsFileList([file])
+                });
+                peakFileList.forEach((file) => {
+                    file.status = 'done'
+                    setPeakFileList([file])
                 });
                 message.success({
                     content: 'upload successfully!',
@@ -134,6 +142,14 @@ export default function MappingForSingleCellMultiomics(props) {
                 labelsFileList.forEach((file) => {
                     file.status = 'error'
                     setLabelsFileList([file])
+                });
+                fragmentsFileList.forEach((file) => {
+                    file.status = 'error'
+                    setFragmentsFileList([file])
+                });
+                peakFileList.forEach((file) => {
+                    file.status = 'error'
+                    setPeakFileList([file])
                 });
                 message.error({
                         content: 'upload unsuccessfully.',
