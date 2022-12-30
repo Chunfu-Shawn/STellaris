@@ -25,12 +25,12 @@ export default function UploadModule(){
                     validateMessages={validateMessages}
                 />
         },// 务必填写 key
-        /*{
+        {
             label: 'For Single Cell Multiomics', key: 'item-2', children:
                 <MappingForSingleCellMultiomics
                     validateMessages={validateMessages}
                 />
-        }*/
+        }
     ]
     return(
         <Tabs className={'border-card-wrapper'}
