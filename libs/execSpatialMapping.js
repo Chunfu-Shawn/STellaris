@@ -7,13 +7,19 @@ import removeUploadFiles from "./removeUploadFiles.js";
 import {getJobInfo} from "./api/getJobInfo.js";
 import {updateJob2Finished} from "./queue/updateJob2Finished.js";
 import {setJobTime} from "./record/setJobTime.js";
+import {getJobParams} from "./record/getJobParams.js";
 
 export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
+    const params = await getJobParams(rid)
     const record = await getJobInfo(rid)
-    const dataset = record.dataset_id
-    const section = record.section_id
-    const divergenceCutoff = record.cutoff
-    const bandWidth = record.band_width
+    const dataset = params.dataset_id
+    const section = params.section_id
+    const knnNum = params.knn_num
+    const nSpots = params.n_spots
+    const nCells = params.n_cells
+    const nRedundancy = params.n_redundancy
+    const divergenceCutoff = params.cutoff
+    const bandWidth = params.band_width
     const resultPath = record.result_path
     const species = record.species
     const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
@@ -24,6 +30,10 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         " --key_celltype " + "cell_type" +
         " --dataset " + dataset +
         " --section " + section +
+        " --knn_num " + knnNum +
+        " --n_spots " + nSpots +
+        " --n_cells " + nCells +
+        " --n_redundancy " + nRedundancy +
         " --divergence_cutoff " + divergenceCutoff +
         " --band_width " + bandWidth +
         " --n_bootstrap " + nBootstrap +
@@ -38,12 +48,14 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
         //如果python脚本不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
+        await updateJob2Finished(rid)
         annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is no scripts of spatial mapping.`)
     } else if(!fs.existsSync(sc_h5ad_Path)) {
         //如果空间数据不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
-        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is no reference ST data while perform spatial mapping.`)
+        await updateJob2Finished(rid)
+        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: There is no scRNA-seq data while perform spatial mapping.`)
     } else {
         try {
             annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Spatial mapping running...`)

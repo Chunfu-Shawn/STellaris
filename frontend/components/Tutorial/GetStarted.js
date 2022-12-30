@@ -6,6 +6,7 @@ export default function GetStarted(){
     return(
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
+                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Spatial Mapping</Breadcrumb.Item>
                 <Breadcrumb.Item>Get started</Breadcrumb.Item>

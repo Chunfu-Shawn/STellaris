@@ -116,14 +116,14 @@ export function uploadRecord(ctx) {
                     reject(err)
                 }
                 connection.query(insertSql, [rid, title, email, species, organ, tissue, matrixFilePath, labelsFilePath,
-                    resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, cutoff,
-                    bandWidth, type, status], (err) => {
-                    if (err) {
-                        annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
-                    } else {
-                        annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Add a record into MySQL successfully.`)
-                    }
-                })
+                        resultPath, uploadTime, screenFinishTime, annStartTime, annFinishTime, datasetID, sectionID, cutoff,
+                        bandWidth, type, status], (err) => {
+                        if (err) {
+                            annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: Adding a annotation record failed in MySQL: ${err.message}`)
+                        } else {
+                            annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Add a record into MySQL successfully.`)
+                        }
+                    })
                 connection.release()
             })
             resolve([rid, species, organ, tissue, matrixFilePath, labelsFilePath, resultPath])

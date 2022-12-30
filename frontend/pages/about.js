@@ -51,7 +51,7 @@ export default function About() {
                 <div className="box">
                     <p>
                         STellaris is integrated and inspired by several analysis tools or methods that have been
-                        <a href={"https://pubmed.ncbi.nlm.nih.gov/?term=31932730%2C35314812%2C34857954%2C34062119%2C29409532%2C34774128%2C32719530%2C29553579%2C35365632"}
+                        <a href={"https://pubmed.ncbi.nlm.nih.gov/?term=35314812%2C31932730%2C34857954%2C36130281%2C29409532%2C34774128%2C32719530"}
                            target={"_blank"} rel={"noreferrer"}>
                             &nbsp;published earlier
                         </a>.

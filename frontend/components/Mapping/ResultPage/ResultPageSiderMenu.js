@@ -1,4 +1,3 @@
-import {Layout} from 'antd';
 import React from "react";
 import {SiderMenu} from "../../SiderMenu.js";
 

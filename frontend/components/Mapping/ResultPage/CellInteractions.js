@@ -1,4 +1,6 @@
-import {Col, Row, Select} from "antd";
+import {Col, Divider, Row, Select} from "antd";
+import Link from "next/link";
+import {QuestionCircleOutlined} from "@ant-design/icons";
 import InteractionsHeatmap from "./InteractionsHeatmap";
 import LigandsReceptorsDotplot from "./LigandsReceptorsDotplot";
 import LigandsReceptorsNetwork from "./LigandsReceptorsNetwork";

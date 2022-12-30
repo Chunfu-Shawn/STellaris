@@ -1,6 +1,7 @@
 import {Tabs} from "antd";
-import SpatialMapping from "./SpatialMapping";
+import MappingForScRNAseq from "./MappingForScRNAseq";
 import React from "react";
+import MappingForSingleCellMultiomics from "./MappingForSingleCellMultiomics";
 
 const validateMessages = {
     required: '${label} is required!',
@@ -18,11 +19,18 @@ const validateMessages = {
 
 export default function UploadModule(){
     const items =[
-        { label: 'Spatial Mapping of scRNA-seq', key: 'item-1', children:
-                <SpatialMapping
+        {
+            label: 'For scRNA-seq', key: 'item-1', children:
+                <MappingForScRNAseq
                     validateMessages={validateMessages}
                 />
-        }// 务必填写 key
+        },// 务必填写 key
+        /*{
+            label: 'For Single Cell Multiomics', key: 'item-2', children:
+                <MappingForSingleCellMultiomics
+                    validateMessages={validateMessages}
+                />
+        }*/
     ]
     return(
         <Tabs className={'border-card-wrapper'}

@@ -6,6 +6,7 @@ export default function GeneSearch(){
     return (
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
+                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Gene Search</Breadcrumb.Item>
             </Breadcrumb>

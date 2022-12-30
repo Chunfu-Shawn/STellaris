@@ -6,6 +6,7 @@ export default function ResultInterpretation(){
     return (
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
+                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Spatial Mapping</Breadcrumb.Item>
                 <Breadcrumb.Item>Result interpretation</Breadcrumb.Item>
