@@ -110,9 +110,9 @@ export default function ManualMapping() {
                 <ol>
                     <li>
                         Firstly, we calculate a <b>2D grid kernel density</b> for each cell type by KernelDensity function
-                        from sklearn.neighbor Python package with gaussian kernel and user-defined parameter
-                        <b><i> bandwidth </i></b>associated with ST spots density and kernel smoothness. Then we calculate predicted
-                        appearance probability for each cell type over a 2d grid of points evenly with 100 points in each direction.
+                        from sklearn.neighbor python package with gaussian kernel and user-defined parameter
+                        <b><i> bandwidth </i></b>associated with ST spots density and kernel smoothness. Then we predict
+                        appearance probabilities for each cell type over a 2d grid of points evenly with 100 points in each direction.
                     </li>
                     <li>
                         <div>
@@ -130,7 +130,7 @@ export default function ManualMapping() {
                     <li>
                         Thirdly, based on the <b>negative log2 JS divergence </b>matrix of different cell type, we
                         construct a <b>maximum spanning tree (MST)</b> to present the simplified cell types colocalization
-                        by networkx Pythofiguren package with edge.
+                        by networkx python package with edge.
                     </li>
                     <li>
                         To estimate the complete cell types colocalization, the above steps are performed
@@ -141,10 +141,10 @@ export default function ManualMapping() {
                     <li>
                         Finally, we retain the most proximal cell type pairs referring to user-defined parameter
                         <b><i> cutoff</i></b> equal to percentage of top retained colocalization relation of cell type
-                        pairs according to MST consensus matrix, and then extract microenvirionments for each cell
-                        type assigning a name <b>“Microenv_[central cell type]”</b>  whose [central cell type] means
-                        the cell type closing to all other cell types in this microenvirionment. Therefore some cell types
-                        will occur repetitively in some microenvirionment but with different biological functioning.
+                        pairs according to MST consensus matrix, and then identify microenvironments for each cell
+                        type with assigning a name <b>“Microenv_[central cell type]”</b>  whose [central cell type] means
+                        the cell type closing to all other cell types in this microenvironment. Therefore some cell types
+                        will occur repetitively in some microenvironments but with different biological functioning.
                     </li>
                 </ol>
                 <h4>Figures</h4>
@@ -217,15 +217,15 @@ export default function ManualMapping() {
                         human if scRNA-seq comes from mouse.
                     </li>
                     <li>
-                        To improve the speed and efficiency of prediction, we subsampling cells (default 30%) maintaining
-                        the transcriptomic hererogeneity.
+                        To improve the speed and efficiency of prediction, we subsample cells (default 30%) maintaining
+                        the transcriptomic heterogeneity.
                     </li>
                     <li>
                         We predict enriched receptor-ligand interactions between two cell types based on expression of
                         receptors and ligands by statistical inference limited in spatial microenvironments.
                     </li>
                     <li>
-                        After filtering receptor-ligand interactions by P value ≤ 0.01, we count total number of
+                        After filtering receptor-ligand interactions by P-value ≤ 0.01, we count total number of
                         receptor-ligand interactions for each cell type pair and plot heatmap (<b>figure 6.1</b>).
                     </li>
                     <li>
