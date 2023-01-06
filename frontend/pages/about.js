@@ -40,7 +40,7 @@ export default function About() {
                     <p>This tool is developed and maintained by Xiangshang Li, Chunfu Xiao and Juntian Qi of Chuan-Yun Li’s
                         lab, Peking University.</p>
                 </div>
-                <Image src={'/images/figure1.png'} alt={"figure1"} width={800} height={660}/>
+                <Image src={'/images/figure1.png'} alt={"figure1"} width={800} height={700}/>
                 <Divider><h2>License</h2></Divider>
                 <div className="box">
                     <p>STellaris is open and free for everyone to use and there is no login requirement. Please be assured
