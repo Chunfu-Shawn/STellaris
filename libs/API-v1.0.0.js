@@ -129,18 +129,32 @@ RouterAPI.get('/api/error-log/:rid', async (ctx) => {
     ctx.body = await getLogLine(record.result_path, "/log/Error.log")
 })
 
-// submitted counts files fetch
+// submitted counts file fetch
 RouterAPI.get('/api/submitted-files/counts/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + record.matrix_file_path.split("/")[3])
     ctx.body = fs.readFileSync(record.matrix_file_path)
 })
 
-// submitted labels files fetch
+// submitted labels file fetch
 RouterAPI.get('/api/submitted-files/labels/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
     ctx.set('Content-disposition', 'attachment; filename=' + record.labels_file_path.split("/")[3])
     ctx.body = fs.readFileSync(record.labels_file_path)
+})
+
+// submitted fragments file fetch
+RouterAPI.get('/api/submitted-files/fragments/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.fragments_file_path.split("/")[3])
+    ctx.body = fs.readFileSync(record.fragments_file_path)
+})
+
+// submitted peak file fetch
+RouterAPI.get('/api/submitted-files/peak/:rid', async (ctx) => {
+    const record = await getJobInfo(ctx.params.rid)
+    ctx.set('Content-disposition', 'attachment; filename=' + record.peak_file_path.split("/")[3])
+    ctx.body = fs.readFileSync(record.peak_file_path)
 })
 
 // download annotated sc h5ad
