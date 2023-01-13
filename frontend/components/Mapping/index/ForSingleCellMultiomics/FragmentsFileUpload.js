@@ -12,7 +12,7 @@ export default function FragmentsFileUpload(props){
         beforeUpload: (file) => {
             let filenameArr = file.name.split('.');
             props.setFileList([file]);
-            let limitM = 100; //MB
+            let limitM = 200; //MB
             let isMatrix = filenameArr[filenameArr.length - 2] === 'bed';
             let isGzip = file.type === 'application/x-gzip' || file.type === 'application/gzip';
             let isZip = file.type === 'application/zip' || file.type === 'application/x-zip' ||
@@ -32,7 +32,7 @@ export default function FragmentsFileUpload(props){
             if (!isLimit) {
                 props.setFileList([])
                 message.error({
-                    content:`File: ${file.name} exceeds the limit: 100 MB`,
+                    content:`File: ${file.name} exceeds the limit: 200 MB`,
                     style:{
                         marginTop: '12vh',
                     },
@@ -69,7 +69,7 @@ export default function FragmentsFileUpload(props){
             Click on &quot;?&quot; to see more.
         </span><br/>
         <span>&gt; Example:</span><br/>
-        <Image src={`/images/counts_matrix_example.png`} alt="..." width={400} height={220}/>
+        <Image src={`/images/fragments_file_example.png`} alt="..." width={400} height={200}/>
     </>
 
     return(
@@ -87,8 +87,8 @@ export default function FragmentsFileUpload(props){
                     </Upload>
                 </Form.Item>
             </Col>
-            <Col span={7}>
-                <small style={{color:"gray"}}> (only a .gz/zip format file) </small>
+            <Col span={8}>
+                <small style={{color:"gray"}}> (only a .bed.gz/zip format file) </small>
                 <Link href={'/tutorial/mapping/getStarted/#data_preparation'} target={"_blank"}>
                     <a target={'_blank'} rel={"noreferrer"}>
                         <Tooltip placement="topLeft"

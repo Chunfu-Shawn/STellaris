@@ -92,7 +92,7 @@ export default function ResultInterpretation(){
                 <p>
                     As for this example, ganglionic eminence cells, the progenitor cells of the ventral telencephalon, locate
                     precisely where they originate from. The inhibitory neurons are exactly located in the ventral part as
-                    they have not yet migrated to cerebral cortex at this point. Radial gilal cells line the ventricles.
+                    they have not yet migrated to cerebral cortex at this point. Radial glial cells line the ventricles.
                     Thalamic cells are also positioned in the right place although they are rarely captured in the scRNA-seq.
                 </p>
                 <div style={{textAlign:"center"}} >
@@ -168,7 +168,7 @@ export default function ResultInterpretation(){
                     glias (RGs) generate basal progenitors, the secondary class of neuroprogenitors, and the newborn basal
                     progenitors migrate to the subventricular zone (SVZ) where they produce most of cortical neurons. In the
                     scRNA-seq here we use, RG1 [8-E] represents the major cell type of RGs that lines the VZ, SVZ1 (migrating)
-                    [4-E] represents the major basal progenitors located in SVZ which were generated and migrated from VZ.
+                    [14-E] represents the major basal progenitors located in SVZ which were generated and migrated from VZ.
                     Focus on the microenvironment of RG1 or SVZ1, we found that Ptn-Ptprs, the top-ranked pair of ligand and
                     receptor with Ptn as ligand in RG1 and Ptprs as receptor in SVZ1 , stands out along with this migration
                     event. These results may reinforce previous findings suggesting that Ptn acts as a ligand that can bind
