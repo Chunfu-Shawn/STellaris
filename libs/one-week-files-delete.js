@@ -59,7 +59,6 @@ export function removePromise(dir) {
 export default function rmFiles(DIR_PATH_RESULTS,DIR_PATH_UPLOADS){
     // remove results
     removeFolder(DIR_PATH_RESULTS).then(()=>{
-        console.log(new Date())
         console.log("Successfully remove the folders of results created one week age!")
     }).catch(e=>console.log("error: ",e))
 
