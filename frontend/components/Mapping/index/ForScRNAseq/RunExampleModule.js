@@ -51,7 +51,7 @@ export default function RunExampleModule(props){
             key: '1',
             label: (
                 <Button type={"link"}>
-                    <a href={"/mapping/resultPage/52fa0100-909b-11ed-9249-979b422f6c75"}>
+                    <a href={"/mapping/resultPage/c71959a0-6a62-11ed-a471-a39e452631de"}>
                         <span>
                             Mouse fetal brain <b><i>(FINISHED)</i></b>
                         </span>
@@ -75,9 +75,9 @@ export default function RunExampleModule(props){
             key: '3',
             label: (
                 <Button type={"link"}>
-                    <a href={"/mapping/resultPage/b3ae1730-90b3-11ed-9695-b54d6690f34b"}>
+                    <a href={"/mapping/resultPage/be5c2ed0-73c4-11ed-b6c1-d3f15153eaa4"}>
                         <span>
-                            Human Squamous Cell Carcinoma <b><i>(FINISHED)</i></b>
+                            Tumor microenvironment in PDAC <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
@@ -106,9 +106,9 @@ export default function RunExampleModule(props){
         {
             key: '6',
             label: (
-                <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial patterning of human cutaneous squamous cell carcinoma"))}>
+                <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial patterning of tumor microenvironment in PDAC"))}>
                     <span>
-                        Human Squamous Cell Carcinoma <b><i>(FROM SCRATCH)</i></b>
+                        Tumor microenvironment in PDAC <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Button>
             ),
