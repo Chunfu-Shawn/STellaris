@@ -15,7 +15,7 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/gene/"+ context.params.gene_id
     )
     const data = await res.json()
@@ -25,14 +25,14 @@ export async function getServerSideProps(context) {
         }
     }
     const resTrans = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/gene/transcript/"+ context.params.gene_id
     )
     const dataTrans = await resTrans.json()
 
     /*/ get correlation of genes expression
     const resCor = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/genes-expression-correlation/gene/" + data[0].symbol)
     const dataCor = await resCor.json()
      */
@@ -77,6 +77,9 @@ export default function GenePage(props) {
 
     return (
         <LayoutCustom>
+            <Head>
+                <title>{siteTitle+"| Gene Search | "+props.data.ensembl_id}</title>
+            </Head>
             <GeneContext.Provider value={
                 {
                     ...props,
@@ -88,9 +91,6 @@ export default function GenePage(props) {
                     organTissue:organTissue,
                 }
             }>
-            <Head>
-                <title>{siteTitle+"| Gene Search | "+props.data.ensembl_id}</title>
-            </Head>
                 <div
                     className={"modal-body-stw with-sider"}
                 >
@@ -117,11 +117,11 @@ export default function GenePage(props) {
                                     </Row>
                                     {
                                         SVGLoading === true ? <></> :
-                                        dataSV.length !== 0 ?
-                                            <span>
+                                            dataSV.length !== 0 ?
+                                                <span>
                                                 This gene was defined as a spatially variable gene in <b>{organTissue.join(", ")}</b>
                                             </span>:
-                                            <span>
+                                                <span>
                                                 This gene was NOT a spatially variable gene in any organs/tissues.
                                             </span>
                                     }

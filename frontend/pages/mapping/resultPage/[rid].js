@@ -19,12 +19,12 @@ export async function getServerSideProps(context) {
         }
     }
     const res = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/job-info/"+ context.params.rid
     )
     const data = await res.json()
     const res2 = await fetch((process.env.NODE_ENV==="production"?
-            process.env.PRODUCTION_URL:"http://localhost:3000")
+            process.env.PRODUCTION_URL:"http://localhost:3001")
         +"/api/server-time"
     )
     const data2 = await res2.json()
@@ -230,22 +230,22 @@ export default function ResultPage(props) {
 
     return (
         <LayoutCustom>
+            <Head>
+                <title>{siteTitle+"| Mapping | "+props.rid}</title>
+            </Head>
             <AnnContext.Provider
                 value={
-                {
-                    serverTime: props.data.serverTime,
-                    reqInfo: reqInfo,
-                    sLog: sLog,
-                    MIA: MIA,
-                    queueInfo: queueInfo,
-                    nLog: nLog,
-                    result: result,
-                    eLog:eLog
-                }
-            }>
-                <Head>
-                    <title>{siteTitle+"| Mapping | "+props.rid}</title>
-                </Head>
+                    {
+                        serverTime: props.data.serverTime,
+                        reqInfo: reqInfo,
+                        sLog: sLog,
+                        MIA: MIA,
+                        queueInfo: queueInfo,
+                        nLog: nLog,
+                        result: result,
+                        eLog:eLog
+                    }
+                }>
                 {returnModule}
             </AnnContext.Provider>
         </LayoutCustom>
