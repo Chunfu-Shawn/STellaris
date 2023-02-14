@@ -95,19 +95,15 @@ export default function MappingForSingleCellMultiomics(props) {
             onUploadProgress: progressEvent => {
                 matrixFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 100 | 0);
-                    setMatrixFileList([file])
                 })
                 labelsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 788 | 0);
-                    setLabelsFileList([file])
                 })
                 fragmentsFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 132 | 0);
-                    setLabelsFileList([file])
                 })
                 peakFileList.forEach((file) => {
                     file.percent = (progressEvent.loaded / progressEvent.total * 477 | 0);
-                    setLabelsFileList([file])
                 })
             },
         }).then(response => response.data)
@@ -182,7 +178,8 @@ export default function MappingForSingleCellMultiomics(props) {
         form.resetFields();
         setMatrixFileList([]);
         setLabelsFileList([]);
-        console.log("reset")
+        setFragmentsFileList([]);
+        setPeakFileList([]);
     };
 
     return (
@@ -257,10 +254,10 @@ export default function MappingForSingleCellMultiomics(props) {
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit"
                         disabled={
-                        matrixFileList.length === 0 ||
-                        labelsFileList.length === 0 ||
-                        fragmentsFileList.length === 0
-                    }
+                            matrixFileList.length === 0 ||
+                            labelsFileList.length === 0 ||
+                            fragmentsFileList.length === 0
+                        }
                         loading={uploading}
                         className={"btn-upload"}
                 >
