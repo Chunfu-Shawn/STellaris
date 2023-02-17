@@ -86,7 +86,6 @@ export default function MappingForSingleCellMultiomics(props) {
         formData.append('isDemo', "false")
         setUploading(true);
         // You can use any AJAX library you like
-        console.log(formData.get("fragmentsFile"))
         axios({
             method: 'POST',
             headers: {'Content-Type':'multipart/form-data'},
