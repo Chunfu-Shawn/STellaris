@@ -16,7 +16,7 @@ export function setJobParams(rid, knnNum, numSpots, numCells, numRedundancy, ban
                     annotationLogger.log(`${rid} [${new Date().toLocaleString()}] Error: there is error happened in MySQL: ${err.message}`)
                     reject(err)
                 } else {
-                    annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Add reference dataset and section in MySQL.`)
+                    annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: Add advanced parameters in MySQL.`)
                     resolve()
                 }
             });

@@ -55,7 +55,7 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
                 " --genome " + genome
     }
     command = command +
-        " >"+ resultPath + "/log/spatialMapping.log"+
+        " >"+ resultPath + "/log/spatial_mapping.log"+
         " 2>" + resultPath + "/log/Error.log"
 
     // 执行注释脚本
@@ -80,7 +80,7 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
             let annoProcess = child_process.exec(command)
             // 监听annoProcess任务的exit事件，如果发生则调用listener
             annoProcess.on('exit', function (code) {
-                annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: child process 'NicheAnchor' has exited，exit code: ${code}`)
+                annotationLogger.log(`${rid} [${new Date().toLocaleString()}]: child process 'Spatial Mapping' has exited，exit code: ${code}`)
                 if (code === 0) {
                     setJobStatus(rid, "finished")
                     execReCompress(rid, resultPath)

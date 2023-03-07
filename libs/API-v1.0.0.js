@@ -112,9 +112,9 @@ RouterAPI.get('/api/mia-result/:rid', async (ctx) => {
 })
 
 // cell-trek, colocalization and interaction log fetch
-RouterAPI.get('/api/niche-anchor-log/:rid', async (ctx) => {
+RouterAPI.get('/api/spatial-mapping-log/:rid', async (ctx) => {
     const record = await getJobInfo(ctx.params.rid)
-    ctx.body = await getLogLine(record.result_path, '/log/nicheAnchor.log')
+    ctx.body = await getLogLine(record.result_path, '/log/spatial_mapping.log')
 })
 
 // Mapping Result fetch

@@ -114,7 +114,7 @@ function useQueueInfo(rid,status){
 // 自定义hook，每次渲染后返回 Niche Anchor Log结果；
 function useSpatialMappingLog(rid,status){
     const fetcher = (...args) => fetch(...args).then((res) => res.json())
-    const { data, error } = useSWR(status==="running"?`/api/niche-anchor-log/${rid}`:null, fetcher,
+    const { data, error } = useSWR(status==="running"?`/api/spatial-mapping-log/${rid}`:null, fetcher,
         {
             refreshInterval: 1000,
         })
