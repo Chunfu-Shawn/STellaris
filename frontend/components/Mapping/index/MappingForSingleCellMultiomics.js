@@ -257,10 +257,10 @@ export default function MappingForSingleCellMultiomics(props) {
             <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit"
                         disabled={
-                            matrixFileList.length === 0 ||
-                            labelsFileList.length === 0 ||
-                            fragmentsFileList.length === 0
-                        }
+                        matrixFileList.length === 0 ||
+                        labelsFileList.length === 0 ||
+                        fragmentsFileList.length === 0
+                    }
                         loading={uploading}
                         className={"btn-upload"}
                 >

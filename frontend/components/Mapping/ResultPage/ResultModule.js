@@ -7,9 +7,6 @@ import Link from "next/link";
 import {DownloadOutlined, QuestionCircleOutlined, SmileOutlined} from "@ant-design/icons";
 import ResultsDownload from "./ResultsDownload";
 import Preprocessing from "../ResultPage/Preprocessing";
-import UMAPScatter from "../ResultPage/UMAPScatter";
-import JSDHeatmap from "../ResultPage/JSDHeatmap";
-import MSTNetwork from "../ResultPage/MSTNetwork";
 import CellInteractions from "../ResultPage/CellInteractions";
 import DistanceDensityGraph from "../ResultPage/DistanceDensityGraph";
 import MappedCellCountBarGraph from "../ResultPage/MappedCellCountBarGraph";
@@ -18,6 +15,8 @@ import {AnnContext} from "../../../pages/mapping/resultPage/[rid]";
 import MappingSteps from "../MappingSteps";
 import UmapFilteredCellCountBarGraph from "./UmapFilteredCellCountBarGraph";
 import UMAPModule from "./UMAPModule";
+import DistanceBoxPlot from "./DistanceBoxPlot";
+import EDHeatmap from "./EDHeatmap";
 
 export default function ResultModule(){
     const divContent = useRef(null); //标识nav导航栏渲染内容
@@ -75,6 +74,7 @@ export default function ResultModule(){
                                    chartSize={220} dataset={scRawDataset}/>
         },
     ]
+
     if (annContext.reqInfo.type === "multiomics")
         item2.push(
             {
@@ -84,6 +84,7 @@ export default function ResultModule(){
                                        chartSize={220} dataset={scMultiRegDataset}/>
             }
         )
+
     useEffect(()=>{
         notification.info({
             message: `Result page needs time to load data`,
@@ -186,13 +187,13 @@ export default function ResultModule(){
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            {annContext.result.mst && annContext.result.jsd ?
+                            {annContext.result.eucDis && annContext.result.eucDisBox ?
                                 <Row justify={"space-evenly"} align={"top"}>
                                     <Col>
-                                        <JSDHeatmap/>
+                                        <EDHeatmap/>
                                     </Col>
                                     <Col>
-                                        <MSTNetwork/>
+                                        <DistanceBoxPlot/>
                                     </Col>
                                 </Row>
                                 :
@@ -208,12 +209,12 @@ export default function ResultModule(){
                         <div name={"Interaction"}>
                             <a id={"Interaction"} style={{position: 'relative', top: "-150px"}}></a>
                             <Divider orientation="left" orientationMargin="0">
-                                <span style={{fontSize:22}}>Cell-Cell Ligand-receptor Interactions </span>
+                                <span style={{fontSize:22}}>Cell-cell Ligand-receptor Interactions </span>
                                 <Link href={'/help/manual/mapping#interaction'}>
                                     <a target={"_blank"}><QuestionCircleOutlined/></a>
                                 </Link>
                             </Divider>
-                            {dotPlot && dotPlot.microenvironment.length !== 0 ?
+                            {dotPlot && dotPlot['group|cell_type'].length !== 0 ?
                                 <CellInteractions/>
                                 :
                                 <Empty
