@@ -22,10 +22,10 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
     const section = record.section_id
     const resultPath = record.result_path
     const species = record.species
-    const nicheAnchor = 'scripts/NicheAnchor/nicheAnchor-cellInteraction.sh'
+    const spatialMapping = 'scripts/Spatial_mapping/spatial_mapping.sh'
     const sc_h5ad_Path = resultPath + "/sc.h5ad"
     let command =
-        "bash " + nicheAnchor +
+        "bash " + spatialMapping +
         " --sc_h5ad " + sc_h5ad_Path +
         " --key_celltype " + "cell_type" +
         " --dataset " + dataset +
@@ -55,11 +55,11 @@ export async function execSpatialMapping(rid, nBootstrap = 20, nThreads=30) {
                 " --genome " + genome
     }
     command = command +
-        " >"+ resultPath + "/log/nicheAnchor.log"+
+        " >"+ resultPath + "/log/spatialMapping.log"+
         " 2>" + resultPath + "/log/Error.log"
 
     // 执行注释脚本
-    if (!fs.existsSync(nicheAnchor)) {
+    if (!fs.existsSync(spatialMapping)) {
         //如果python脚本不存在
         await setJobStatus(rid, "error")
         await setJobTime(rid, "ann_finish_time")
