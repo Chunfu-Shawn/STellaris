@@ -27,6 +27,7 @@ export default function ManualMapping() {
                     scRNA-seq and ST data, respectively.
                 </p>
                 <h2>2. Section blast</h2>
+                <a id={"section_blast"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     Multimodal intersection analysis (MIA) methods (
                     <a target={"_blank"} href={"https://doi.org/10.1038/s41587-019-0392-8"} rel={"noreferrer"}>

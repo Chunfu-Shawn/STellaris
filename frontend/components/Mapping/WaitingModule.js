@@ -14,7 +14,7 @@ export default function RunningModule(){
             <h2>Wait to Start Spatial Mapping</h2>
             <div style={{margin:"0px auto",marginTop:20}}>
                 <p style={{fontSize:16,width:600,margin:"0px auto"}}>
-                    Your job is in the queue. If the server is free, your job will start automatically.
+                    Your job is in the queue. If the server is free, it will start automatically.
                 </p>
                 <LoadingOutlined style={{fontSize:40,margin:"30px auto"}}/>
                 <div style={
@@ -32,7 +32,7 @@ export default function RunningModule(){
                         <Row style={{height:"auto",marginBottom:"5px"}}>
                             <Col span={20}>
                                 <span style={{color:"dimgray",fontSize:18}}>
-                                    Your number in the queue
+                                    Your order in the queue
                                 </span>
                             </Col>
                             <Col span={4}>

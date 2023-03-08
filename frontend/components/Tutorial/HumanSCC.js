@@ -2,18 +2,18 @@ import React from "react";
 import {Breadcrumb, Space, Typography, Image} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 
-export default function ResultInterpretation(){
+export default function HumanSCC(){
     return (
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
-                <Breadcrumb.Item>Help</Breadcrumb.Item>
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Spatial Mapping</Breadcrumb.Item>
                 <Breadcrumb.Item>Result interpretation</Breadcrumb.Item>
+                <Breadcrumb.Item>Human squamous cell carcinoma</Breadcrumb.Item>
             </Breadcrumb>
             <a id={"Result interpretation"} style={{position: 'relative', top: "-150px"}}></a>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h2>Result interpretation</h2>
+                <h2>Result interpretation - Human squamous cell carcinoma</h2>
                 <p>
                     Before interpreting the spatial mapping results, we will take some time to explain the computational method
                     used for spatial reconstruction. The spatial mapping module mainly relies on an algorithm tailed for spatial

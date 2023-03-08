@@ -12,6 +12,7 @@ export default function MultiOmics(){
                 <Breadcrumb.Item>Tutorial</Breadcrumb.Item>
                 <Breadcrumb.Item>Spatial Mapping</Breadcrumb.Item>
                 <Breadcrumb.Item>Expanded application</Breadcrumb.Item>
+                <Breadcrumb.Item>H3K4me3 modification in mouse brain</Breadcrumb.Item>
             </Breadcrumb>
             <style jsx>{`
               pre {
@@ -29,7 +30,7 @@ export default function MultiOmics(){
             `}</style>
             <a id={"MutiOmics"} style={{position: 'relative', top: "-150px"}}></a>
             <Typography style={{marginTop:50,fontSize:16}}>
-                <h2>Expanded application: single-cell multiomics data</h2>
+                <h2>Result interpretation - H3K4me3 modification in mouse brain</h2>
                 <h3>1. Overview</h3>
                 <p>In this tutorial, we will showcase an expanded application of STellaris with respect to single-cell
                     multiomics data. It&apos;s based on an obvious assumption that when we map a single cell to its spatial
