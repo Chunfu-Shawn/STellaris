@@ -17,8 +17,6 @@ export default function SectionTable() {
     const [numSpots, setNumSpots] = useState(10);
     const [numCells, setNumCells] = useState(10);
     const [numRedundancy, setNumRedundancy] = useState(1);
-    const [cutoff, setCutoff] = useState(0.3);
-    const [bandWidth, setBandWidth] = useState(20);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const sections = annContext.MIA.section_id
     const enrichmentScore = annContext.MIA.enrichment_score
@@ -60,8 +58,6 @@ export default function SectionTable() {
                 numSpots:numSpots,
                 numCells:numCells,
                 numRedundancy:numRedundancy,
-                cutoff: cutoff,
-                bandWidth: bandWidth
             })
         }).then(() => {
             router.reload()
@@ -100,13 +96,6 @@ export default function SectionTable() {
     const onNumRedundancyChange = (value) => {
         setNumRedundancy(value);
     };
-    const onBandWidthChange = (value) => {
-        setBandWidth(value);
-    };
-    const onCutoffChange = (value) => {
-        setCutoff(value);
-    };
-
 
 
     const handleSelect = (datasetId,sectionId) => () => {
@@ -307,42 +296,6 @@ export default function SectionTable() {
                             min="1"
                             max={Math.min(numCells,numSpots)}
                             step="1"
-                            stringMode
-                        />
-                    </Col>
-                    <Col span={7}>
-                        <span>Bandwidth : </span>
-                    </Col>
-                    <Col span={5}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onBandWidthChange}
-                            defaultValue="20"
-                            precision={0}
-                            min="5"
-                            max="150"
-                            step="5"
-                            stringMode
-                        />
-                    </Col>
-                    <Col span={7}>
-                        <span>Divergence cutoff : </span>
-                    </Col>
-                    <Col span={5}>
-                        <InputNumber
-                            style={{
-                                width: 100,
-                            }}
-                            size={"small"}
-                            onChange={onCutoffChange}
-                            defaultValue="0.3"
-                            precision={2}
-                            min="0.1"
-                            max="1"
-                            step="0.05"
                             stringMode
                         />
                     </Col>

@@ -2,8 +2,16 @@ import React from "react";
 import {Breadcrumb, Space, Typography, Image} from "antd";
 import {contentStyle} from "../Help/SiderStaticMenu";
 import Link from "next/link.js";
+import {downloadFile} from "../util";
+
 
 export default function GetStarted(){
+
+    const handleClick = () => {
+        downloadFile(`/api/submitted-files/counts/52fa0100-909b-11ed-9249-979b422f6c75`)
+        downloadFile(`/api/submitted-files/labels/52fa0100-909b-11ed-9249-979b422f6c75`)
+    }
+
     return(
         <div className="modal-body-stw" style={contentStyle}>
             <Breadcrumb>
@@ -15,8 +23,7 @@ export default function GetStarted(){
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h2>Get started (step by step)</h2>
                 <p>In this tutorial, we use the
-                    <a href={"/mapping/resultPage/ac970aa0-79fd-11ed-968c-79eb53139108"}
-                       target={"_blank"} rel={"noreferrer"}>
+                    <a onClick={handleClick}>
                         <b> scRNA-seq data </b>
                     </a>
                     of <b>fetal mouse cerebral cortex (E14.5)</b> to show you how to get started with the<b> spatial mapping </b>
