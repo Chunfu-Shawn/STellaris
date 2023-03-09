@@ -57,7 +57,7 @@ export default function RunningModule(){
                             <Col span={17}><span style={{color:"dimgray"}}>Estimated waiting time</span></Col>
                             <Col span={7}>
                                 <span style={{fontWeight:"bold",color:"gray"}}>
-                                    {annContext.queueInfo.waitingOrder * 5} - {annContext.queueInfo.waitingOrder * 10} min
+                                    {(annContext.queueInfo.waitingOrder-1) * 5} - {annContext.queueInfo.waitingOrder * 10} min
                                 </span>
                             </Col>
                         </Row>
