@@ -62,7 +62,7 @@ export default function RunExampleModule(props){
         {
             key: '2',
             label: (
-                <Button type={"link"} onClick={throttle(1000,onRunExample("H3K4me3 modifications in mouse adult cortex and hippocampus"))}>
+                <Button type={"link"} onClick={throttle(1000,onRunExample("H3K4me3 modification in mouse adult cortex and hippocampus"))}>
                     <span>
                         H3K4me3 modifications in mouse brain <b><i>(FROM SCRATCH)</i></b>
                     </span>

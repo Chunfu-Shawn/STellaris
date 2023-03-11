@@ -26,7 +26,7 @@ export default function UploadModule(){
                 />
         },// 务必填写 key
         {
-            label: 'For Single Cell Multiomics', key: 'item-2', children:
+            label: 'For single-cell multiomics', key: 'item-2', children:
                 <MappingForSingleCellMultiomics
                     validateMessages={validateMessages}
                 />

@@ -77,7 +77,7 @@ export default function RunExampleModule(props){
                 <Button type={"link"}>
                     <a href={"/mapping/resultPage/b3ae1730-90b3-11ed-9695-b54d6690f34b"}>
                         <span>
-                            Human Squamous Cell Carcinoma <b><i>(FINISHED)</i></b>
+                            Human squamous cell carcinoma <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
@@ -108,7 +108,7 @@ export default function RunExampleModule(props){
             label: (
                 <Button type={"link"} onClick={throttle(2000,onRunExample("Spatial patterning of human cutaneous squamous cell carcinoma"))}>
                     <span>
-                        Human Squamous Cell Carcinoma <b><i>(FROM SCRATCH)</i></b>
+                        Human squamous cell carcinoma <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Button>
             ),

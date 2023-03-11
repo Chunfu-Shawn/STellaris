@@ -16,6 +16,25 @@ export default function MouseFetalBrain(){
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h2>Result interpretation - Mouse fetal brain</h2>
                 <p>
+                    Here we continue from
+                    <Link href={"/tutorial/mapping/getStarted"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> Get started </b>
+                        </a>
+                    </Link>to parse the spatial mapping results. The result page of this case
+                    study (mouse fetal brain) is available at
+                    <Link href={"/mapping/resultPage/52fa0100-909b-11ed-9249-979b422f6c75"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> 52fa0100-909b-11ed-9249-979b422f6c75 </b>
+                        </a>
+                    </Link>. You can also access it from the
+                    <Link href={"/"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> home page</b>
+                        </a>
+                    </Link>.
+                </p>
+                <p>
                     Before interpreting the results, we will take some time to explain the computational method used for
                     spatial mapping. We adopted a metric learning approach using a multivariate random forest (RF) model,
                     which was previously described in CellTrek (
@@ -26,10 +45,10 @@ export default function MouseFetalBrain(){
                     prediction of spatial coordinates of single cells by assigning them to the reciprocal nearest ST
                     spots where the similarity is measured by the RF distance metric. See
                     <Link href={"/help/manual/mapping#spatial"}>
-                    <a target={"_blank"} rel={"noreferrer"}>
-                        <b> here </b>
-                    </a>
-                </Link> for further description.
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b> here </b>
+                        </a>
+                    </Link> for further description.
                 </p>
                 <p>
                     We also introduced a filtering method, coembedding filtering, to attenuate the confounding effects

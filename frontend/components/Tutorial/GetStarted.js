@@ -26,7 +26,12 @@ export default function GetStarted(){
                     <a onClick={handleClick}>
                         <b> scRNA-seq data </b>
                     </a>
-                    of <b>fetal mouse cerebral cortex (E14.5)</b> to show you how to get started with the<b> spatial mapping </b>
+                    of <b>fetal mouse cerebral cortex (E14.5)</b> (
+                    <Link href={"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE123335"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b>GSE123335</b>
+                        </a>
+                    </Link>) to show you how to get started with the<b> spatial mapping </b>
                     tool, the key module implemented in STellaris. Prior to performing spatial mapping analysis, we have
                     some preparatory work to do, including preparing input files, submitting a job and selecting a properly
                     matched ST section and appropriate parameters.
@@ -117,8 +122,15 @@ export default function GetStarted(){
                 </div>
                 <p>
                     Here we select the top-ranked ST section, a ST data derived from the coronal plane of the fetal mouse
-                    brain at E14.5 generated using Stereo-seq by our own lab. Notably, it coincided exactly with the
-                    developmental stage of our uploaded scRNA-seq data, underling the feasibility of section blast.
+                    brain at E14.5 generated using Stereo-seq by our own lab (
+                    <Link href={"/datasets/dataPage/STW-M-Brain-Stereo-seq-1"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            <b>STW-M-Brain-Stereo-seq-1 coronal_1</b>
+                        </a>
+                    </Link>
+                    ).
+                    Notably, it coincided exactly with the developmental stage of our uploaded scRNA-seq data, underling
+                    the feasibility of section blast.
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Space>
@@ -132,7 +144,7 @@ export default function GetStarted(){
                 <p>
                     A confirming dialog will pop up when you click the &quot;select&quot; button where you can set the advanced
                     parameters for spatial mapping. As the scRNA-seq data is sufficient in number (10,932 cells),
-                    we restrict the &quot;redundancy&quot; parameter to 2. We keep other parameters as default. See
+                    we restrict the &quot;redundancy&quot; parameter to 1. We keep other parameters as default. See
                     <Link href={"/help/manual/mapping#advanced_parameters"}>
                        <a target={"_blank"} rel={"noreferrer"}>
                             <b> here </b>
