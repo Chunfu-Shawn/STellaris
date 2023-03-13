@@ -79,8 +79,9 @@ export default function HumanSCC(){
                     Consistently, we observed a significant enrichment of TSKs in the tumor leading edges where they
                     colocalize with distinct cell types, such as fibroblasts, macrophages, myeloid-derived suppressor
                     cells (MDSCs) and B cells, to constitute the TME. This was further validated by the spatial distance
-                    between each cell type pair (left), where TSK-fibroblasts were determined to be in the &quot;near&quot; range,
-                    and TSK-macrophages, TSK-MDSCs and TSK-B cells were determined to be in the &quot;medium&quot; range (right).
+                    between each cell type pair (heatmap), where TSK-fibroblasts were determined to be in the &quot;near&quot; range,
+                    and TSK-macrophages, TSK-MDSCs and TSK-B cells were determined to be in the &quot;medium&quot; range
+                    (box graph).
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Space>

@@ -12,8 +12,8 @@ export default function MainPage() {
                 <div className="inner cover" >
                     <h1 className="cover-heading">STellaris: accurate spatial mapping for scRNA-seq</h1>
                     <p className="lead" style={{textAlign: "justify"}}>
-                        STellaris is an integrated web application for accurate spatial mapping for scRNA-seq,
-                        which is based on a comprehensive compilation of public available spatial transcriptome (ST)
+                        STellaris is an integrated web application for accurate spatial mapping for scRNA-seq data,
+                        which is based on a comprehensive compilation of public spatial transcriptome (ST)
                         datasets spanning organs, developmental stages and diseases. The inferred spatial information of
                         single cells would subsequently facilitate the identification and validation of intercelluar
                         communications.
@@ -39,12 +39,12 @@ export default function MainPage() {
                 <a id={"more"} style={{position: 'relative', top: "-200px"}}></a>
                 <Row style={{margin:"20px 0px"}} gutter={[40,0]} justify="space-between" >
                     <PlaceHolder title={"Spatial Mapping"}
-                                 context={"The key module designed for mapping spatial locations of single cells " +
+                                 context={"The key module designed for accurate spatial mapping for scRNA-seq data " +
                                      "based on best matched spatial transcriptome data."}
                                  link={"/mapping"} pic={"Pic2.png"}/>
                     <PlaceHolder title={"Dataset Browser"}
-                                 context={"Dataset browser composed of meta information, basic visualization and " +
-                                     "download modules of curated ST datasets"}
+                                 context={"Dataset browser contains modules of meta information, basic visualization and " +
+                                     "files download of curated ST datasets"}
                                  link={"/datasets"} pic={"Pic1.png"}/>
                     <PlaceHolder title={"Gene Search"}
                                  context={"An interface to search for spatially resolved gene expression heterogeneity " +

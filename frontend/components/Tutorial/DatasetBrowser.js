@@ -15,8 +15,8 @@ export default function DatasetBrowser(){
             <Typography style={{marginTop:50,fontSize:16}}>
                 <h2>Dataset Browser</h2>
                 <p>
-                    This tutorial aims to show you how to navigate our dataset browser, which is the data basis for spatial
-                    mapping tools.
+                    This tutorial aims to show you how to retrieve and view our datasets, the data basis for spatial
+                    mapping tools, by dataset browser.
                 </p>
                 <p>
                     We included 100 datasets comprising 774 sections across organs, developmental stage and pathological states
@@ -28,18 +28,18 @@ export default function DatasetBrowser(){
                     Here we will use a ST data derived from postnatal mouse brain (P8) using 10X Visium technique as an example.
                 </p>
                 <p>
-                    1. Click &quot;Datasets&quot; tab in navigator bar on the top. The bar plots summarize the number of ST datasets or
+                    1. Click &quot;Datasets&quot; tab in navigator bar on the top. The bar charts summarize the number of ST datasets or
                     sections in human and mouse compiled by our development team.
                 </p>
                 <p>
                     2. Click &quot;Mouse Archive&quot; to browser ST data of mouse.
                 </p>
                 <div style={{textAlign:"center"}} >
-                    <Image src={"/images/tutorial/dataset/dataset.png"} width={800} height={450}
+                    <Image src={"/images/tutorial/dataset/dataset.png"} width={700} height={700}
                            alt={"dataset"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <p>
-                    3. Choose the ST technology, organ and pathological state of your interest to screen the ST data. Here we
+                    3. Choose the ST method, organ and pathological state of your interest to screen the ST data. Here we
                     select &quot;Visium&quot;, &quot;Brain&quot; and &quot;FALSE&quot; for these three attributes, respectively,
                     and then choose
                     <Link href={"/datasets/dataPage/STW-M-Brain-Visium-2"}>
@@ -59,7 +59,7 @@ export default function DatasetBrowser(){
                            alt={"dataset1"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <p>
-                    5. Skip to &quot;View&quot; tab to explore the spatially resolved expression profile of genes of interest.
+                    5. Click on &quot;View&quot; tab to explore the spatially resolved expression profile of genes of interest.
                     Enter gene symbol in &quot;Genes/Features&quot; box (e.g., Kr8, Slc17a7 and Mbp).
                 </p>
                 <div style={{textAlign:"center"}} >

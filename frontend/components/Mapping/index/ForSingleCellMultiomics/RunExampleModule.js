@@ -53,7 +53,7 @@ export default function RunExampleModule(props){
                 <Button type={"link"}>
                     <a href={"/mapping/resultPage/5a1a39a0-923a-11ed-bff4-0302d4a3355f"}>
                         <span>
-                            H3K4me3 modifications in mouse brain <b><i>(FINISHED)</i></b>
+                            H3K4me3 modification in mouse brain <b><i>(FINISHED)</i></b>
                         </span>
                     </a>
                 </Button>
@@ -64,7 +64,7 @@ export default function RunExampleModule(props){
             label: (
                 <Button type={"link"} onClick={throttle(1000,onRunExample("H3K4me3 modification in mouse adult cortex and hippocampus"))}>
                     <span>
-                        H3K4me3 modifications in mouse brain <b><i>(FROM SCRATCH)</i></b>
+                        H3K4me3 modification in mouse brain <b><i>(FROM SCRATCH)</i></b>
                     </span>
                 </Button>
             ),

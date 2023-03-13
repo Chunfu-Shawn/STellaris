@@ -44,7 +44,7 @@ export default function MultiOmics(){
                         </a>
                     </Link>), which consists of both transcriptomic and H3K4me3 epigenomic data
                     jointly profiled in single cells. In addition to the regular scRNA-seq data, we also upload the
-                    epigenomic profiling of H3K4me3 modification, a
+                    epigenomic profiling data of H3K4me3 modification, a
                     <Link href={"https://support.10xgenomics.com/single-cell-atac/software/pipelines/latest/output/fragments"}>
                         <a target={"_blank"} rel={"noreferrer"}>
                             <b> fragment file </b>
@@ -78,7 +78,7 @@ export default function MultiOmics(){
                            alt={"multiomics_tab"} style={{borderStyle:"dashed"}}/>
                 </div>
                 <p>
-                    Based on the section blast results, we select a properly matched ST section (section 8) from the mouse
+                    Based on the section blast results, we select a properly matched ST section (GSM4644086_section 8) from the mouse
                     brain at P14, which was profiled using Space-TREX technology (
                     <Link href={"/datasets/dataPage/STW-M-Brain-Space-TREX-1"}>
                         <a target={"_blank"} rel={"noreferrer"}>
@@ -120,7 +120,7 @@ export default function MultiOmics(){
                            alt={"ref_scRNA"}/>
                 </div>
                 <p>
-                    We find that the distribution characteristics of H3K4me3 signalling (right) nicely recapitulate
+                    We find that the distribution characteristics of H3K4me3 signals (right) nicely recapitulate
                     those directly profiled by epigenomic MERFISH (left).
                 </p>
                 <div style={{textAlign:"center"}} >

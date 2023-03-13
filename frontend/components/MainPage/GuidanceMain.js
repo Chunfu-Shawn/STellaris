@@ -21,7 +21,7 @@ export default function GuidanceMain(){
         },
         {
             title: "Select Matched Species, Organ & Tissue",
-            description: "Please select species, organ and tissue that match your scRNA-seq data.",
+            description: "Please select the category of species, organ and tissue that your scRNA-seq data fits into.",
             icon: <SolutionOutlined />
         },
         {
