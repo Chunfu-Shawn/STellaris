@@ -7,7 +7,7 @@ const data = [
     },
     {
         "Attribute": "Method",
-        "Description": "the spatial transcriptome sequencing method for each dataset"
+        "Description": "the spatial transcriptomic technology method for each dataset"
     },
     {
         "Attribute": "Date Published",

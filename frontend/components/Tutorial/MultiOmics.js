@@ -120,8 +120,8 @@ export default function MultiOmics(){
                            alt={"ref_scRNA"}/>
                 </div>
                 <p>
-                    We find that the distribution characteristics of H3K4me3 signals (right) nicely recapitulate
-                    those directly profiled by epigenomic MERFISH (left).
+                    We find that the distribution characteristics of layer-enriched promoters in the predicted epigenomic
+                    map (right, box graph) nicely recapitulate those directly profiled in the epigenomic MERFISH paper (left).
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Space>

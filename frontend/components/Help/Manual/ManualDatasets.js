@@ -2,6 +2,7 @@ import {Breadcrumb, Typography, Image} from 'antd';
 import React  from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
 import DatasetAttributesTable from './DatasetPage/DatasetAttributesTable'
+import Link from "next/link";
 
 export default function ManualDatasets() {
 
@@ -24,9 +25,9 @@ export default function ManualDatasets() {
                 <DatasetAttributesTable/>
                 <h2>2. Data processing</h2>
                 <p>
-                    We obtained the gene expression data and spatial location information of 97 sets of spatial
+                    We obtained the gene expression data and spatial location information of 100 sets of spatial
                     transcriptome data through literature research, and some of the spatial transcriptome data obtained
-                    the picture data. A unified python script was used to process the 97 sets of spatial transcriptome
+                    the picture data. A unified python script was used to process the 100 sets of spatial transcriptome
                     data. The following is the processing procedure:
                 </p>
                 <h3>Basic processing</h3>
@@ -42,8 +43,9 @@ export default function ManualDatasets() {
                     <li>
                         The data was then subjected to quality control. We removed the 5% of cells with the lowest total
                         count and the 1% of cells with the highest count, as well as the cells with a mitochondrial RNA
-                        expression ratio greater than 25%. At the same time, we eliminated genes that were expressed in
-                        fewer than five cells. (In addition to image-based data.)
+                        expression ratio greater than 25%. For some poor-quality ST datasets, the proportion of mitochondria
+                        was relaxed to 30%~50%. At the same time, we eliminated genes that were expressed in fewer than
+                        five cells. (In addition to image-based data.)
                     </li>
                     <li>
                         The filtered data was then normalized. The first step is to normalize each cell by the total number
@@ -65,7 +67,13 @@ export default function ManualDatasets() {
                 <p>
                     A spatial region with similar gene expression patterns in a tissue slice is referred to as a spatial
                     domain and has significant biological significance. Therefore, the ability of the spatial
-                    transcriptome to precisely identify such spatial regions is required. STAGATE successfully
+                    transcriptome to precisely identify such spatial regions is required. STAGATE (
+                    <Link href={"https://doi.org/10.1038/s41467-022-29439-6"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            https://doi.org/10.1038/s41467-022-29439-6
+                        </a>
+                    </Link>
+                    ) successfully
                     identifies spatial domains in spatial transcriptome data using adaptive graph attention auto-encoders.
                 </p>
                 <p>
@@ -75,7 +83,13 @@ export default function ManualDatasets() {
                     information and gene expression. A normalized expression matrix serves as the autoencoder&apos;s
                     input, and the output can be utilized to identify the spatial domain.
                 </p>
-                <p>This part is mainly handled through the STAGATE_pyG package (GPU version of STAGATE).</p>
+                <p>This part is mainly handled through the STAGATE_pyG package (
+                    <Link href={"https://github.com/QIFEIDKN/STAGATE_pyG"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            https://github.com/QIFEIDKN/STAGATE_pyG
+                        </a>
+                    </Link>
+                    ) (GPU version of STAGATE).</p>
                 <ul>
                     <li>
                         We define a parameter scope to estimate the cutoff of constructing a spatial neighbor network
@@ -114,7 +128,7 @@ export default function ManualDatasets() {
                 <Image src={"/images/help/datasets/visual_tool.png"} alt={'spatial_trans_visual_tool'} width={900} height={650}/>
                 <ol>
                     <li><b>Section ID Selector</b>: allows users to select a section of this datasets to show.</li>
-                    <li><b>App Bar</b>: shows the number of plots in your dataset and the number of selected cells.
+                    <li><b>App Bar</b>: shows the number of cells/spots in your dataset and the number of selected cells.
                         Additionally, it lets you switch between different tabs.</li>
                     <li><b>Side Bar</b>: allows users to select which cell embeddings, genes/features, cell metadata (such as cluster labels)
                         and sets (predefined lists of genes, e.g. cluster markers) to visualize, and shows the current datasets cell filters.
@@ -124,15 +138,23 @@ export default function ManualDatasets() {
                     <li><b>Toolbar</b>: some tools to select interested spots, download a slice of spatial data and so on.</li>
                     <li><b>Distributions</b>: allows users to explore the differential gene expression across cell clusters with a dot plot, a heat map, or a violin plot.</li>
                 </ol>
-                <p>For more details, please visit:
-                    <a href={'https://cirrocumulus.readthedocs.io/en/latest/documentation.html'} target={'_blank'} rel={'noreferrer'}> https://cirrocumulus.readthedocs.io/en/latest/documentation.html</a>
+                <p>For more details, please visit
+                    <a href={'https://cirrocumulus.readthedocs.io/en/latest/documentation.html'}
+                       target={'_blank'} rel={'noreferrer'}
+                    > https://cirrocumulus.readthedocs.io/en/latest/documentation.html
+                    </a>
                 </p>
                 <h2>4. Identification of spatially variable gene</h2>
                 <a id={"identification_svg"} style={{position: 'relative', top: "-150px"}}></a>
                 <p>
                     It is critical to analyze spatially variable (SV) genes in the spatial transcriptome, but the highly
                     variable genes (HVGs) calculated in Scanpy&apos;s analysis do not take spatial information into account,
-                    so we use SpatialDE methods to compensate.
+                    so we use SpatialDE (
+                    <Link href={"https://doi.org/10.1038/nmeth.4636"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            https://doi.org/10.1038/nmeth.4636
+                        </a>
+                    </Link>) methods to compensate.
                 </p>
                 <p>
                     SpatialDE is a nonlinear and nonparametric method based on Gaussian process regression that can
@@ -141,12 +163,24 @@ export default function ManualDatasets() {
                     expression.
                 </p>
                 <p>
-                    This section is primarily handled through the SpatialDE package.
+                    This section is primarily handled through the SpatialDE package (
+                    <Link href={"https://github.com/Teichlab/SpatialDE"}>
+                        <a target={"_blank"} rel={"noreferrer"}>
+                            https://github.com/Teichlab/SpatialDE
+                        </a>
+                    </Link>
+                    ).
                 </p>
                 <ol>
                     <li>
                         To begin with, data were preprocessed using the &quot;stabilize&quot; and &quot;regress out&quot;
-                        functions from the NaiveDE package based on tutorial provided by SpatialDE officials.
+                        functions from the NaiveDE package (
+                        <Link href={"https://github.com/Teichlab/NaiveDE"}>
+                            <a target={"_blank"} rel={"noreferrer"}>
+                                https://github.com/Teichlab/NaiveDE
+                            </a>
+                        </Link>
+                        ) based on tutorial provided by SpatialDE officials.
                     </li>
                     <li>
                         The spatial coordinate data of the spatial transcriptome data is then extracted.
@@ -163,7 +197,8 @@ export default function ManualDatasets() {
                 <p>
                     h5ad file is compatible with scanpy/anndata python package, which is highly scalable in python
                     environment. An example h5ad file ready to download is shown below, which contains the results of
-                    dimension reduction, traditional clustering, spatial clustering, marker genes of identified clusters.
+                    dimension reduction, traditional clustering, spatial clustering, marker genes of identified clusters
+                    and so on.
                 </p>
                 <div style={{textAlign:"center"}}>
                     <Image src={"/images/help/datasets/h5ad.png"} width={500} height={360}

@@ -66,7 +66,7 @@ export default function MouseFetalBrain(){
                     Prior to spatial mapping, low-quality cells (genes detected &lt;200 or mitochondrial proportion &gt;20%)
                     were excluded. This section displays the elapsed time for the execution of spatial mapping (left)
                     and the basic information of query scRNA-seq and selected ST section (right). The stacked bar plot
-                    visualizes the number of cells that are filtered and retained, and the summary of the retained cells
+                    visualizes the number of cells that are filtered off and retained, and the summary of the retained cells
                     and genes was shown on the top.
                 </p>
                 <div style={{textAlign:"center"}}>
@@ -80,7 +80,7 @@ export default function MouseFetalBrain(){
                     other and vice versa. However, based on the assumption that the query scRNA-seq and selected ST section
                     are properly matched, Celltrek greedily assigns cells to ST spots even if they are derived from completely
                     different tissues. In our tests, over 80% of cells from the mouse liver can be successfully mapped to
-                    ST section of the mouse brain that we are currently using although they are not well integrated. We
+                    a ST section of mouse brain that we are currently using although they are not well integrated. We
                     introduce a compromised approach by filtering cells that are not well mixed with ST spots in shared
                     latent space, thus attenuating the confounding effects caused by the incompatibility between these
                     two modalities.
@@ -91,7 +91,7 @@ export default function MouseFetalBrain(){
                     filtered one on the upper right. In this case, the scRNA-seq and ST data are properly aligned because
                     the scRNA-seq data was derived from the mouse cerebral cortex at E14.5 while the ST data was derived
                     from the coronal plane of the mouse brain at exactly the same developmental stage. So it’s reasonable
-                    that only a few cells are filtered in this step (e.g., Endothelial [18-E]). Only the retained cells
+                    that only a few cells are filtered off in this step (e.g., Endothelial [18-E]). Only the retained cells
                     will be considered in the subsequent mapping analysis.
                 </p>
                 <div style={{textAlign:"center"}}>
@@ -101,9 +101,9 @@ export default function MouseFetalBrain(){
                 <h3>3. Spatial cellular map</h3>
                 <p>
                     Here comes the key results of the spatial mapping. The original spatial transcriptomic map of the
-                    selected ST section (upper left)  is displayed compared to the spatial mapping results of individual
+                    selected ST section (upper left)  is displayed accompanying the spatial mapping result of individual
                     cells at a single-cell resolution (upper right). This interactive panel allows you to click to view
-                    the spatial distribution of your desired cell type in the navigator bar. You can also search for the
+                    the spatial distribution of your desired cell type in the right tab. You can also search for the
                     spatial expression landscapes of genes of interest.
                 </p>
                 <p>
@@ -134,8 +134,9 @@ export default function MouseFetalBrain(){
                            alt={"map3"} style={{borderStyle:"dashed"}}/>
                 </div><br/>
                 <p>
-                    In addition to precise patterning of diverse cell types, the expression profiles of their marker genes,
-                    such as Hes5, Dlx2 and Syt13, also successfully recapitulated those in the initial ST section.
+                    In addition to precise patterning of diverse cell types, the expression profiles of their respective
+                    marker genes (e.g., Hes5, Dlx2, and Syt13) successfully recapitulated those observed in the
+                    reference ST section.
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Space>
@@ -155,8 +156,8 @@ export default function MouseFetalBrain(){
                     can assess the spatial proximity of cell type pairs which is visualized by cell-cell contact map (left).
                     The closeness of a pair of cell types is measured by Euclidean distance. The distance heatmap has been
                     clustered using hierarchical clustering. In this case, the colocalized cell type clusters reveal the
-                    anatomy of the developing mouse brain. The k-means clustering (k=3) is then performed to divide cell
-                    type pairs into three groups: &quot;near,&quot; &quot;medium&quot; and &quot;far&quot; (right).
+                    anatomy of the developing mouse brain. We then performed k-means clustering with k=3 to further divide
+                    the cell type pairs into three groups: &quot;near,&quot; &quot;medium,&quot; and &quot;far,&quot; (right).
                 </p>
                 <div style={{textAlign:"center"}} >
                     <Image src={"/images/tutorial/result/colocalization.png"} width={800} height={440}
@@ -164,14 +165,14 @@ export default function MouseFetalBrain(){
                 </div>
                 <h3>5. Cell-cell ligand-receptor Interactions</h3>
                 <p>
-                    STellaris then identifies LRIs for each cell type pair in different distance groups that are previously
+                    STellaris then identifies LRIs for each cell type pair in different distance groups previously
                     defined. With the spatial proximity between diverse cell types, you can dissect the intercellular
                     interactions in the spatial context given that intercellular communications are more likely to occur
                     in cells that are adjacent to each other. The heatmap (upper left) visualizes the number of LRIs
-                    detected between each two cell types. You can specify a cell type that you are interested in via
-                    the drop-down box, and the LRIs associated with it will be visualized as a dot plot (right). For a
+                    detected between each pair of cell types. To focus on a specific cell type, you can select it from
+                    the drop-down box and visualize its associated LRIs in a dot plot on the right. (right). For a
                     detailed presentation of LRIs between two cell types, STellaris provides a chord graph (lower left)
-                    where the dot colors distinguish gene types and lines colors refer to the degree of interactions.
+                    where the dot colors distinguish gene types and line colors refer to the expression level of interactions.
                     Note that the former cell type represents sender cells and the latter cell type represents receiver cells.
                 </p>
                 <div style={{textAlign:"center"}} >

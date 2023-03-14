@@ -1,7 +1,6 @@
 import {Breadcrumb, Typography} from 'antd';
 import React from 'react';
 import {contentStyle} from "../SiderStaticMenu.js";
-import SearchResultsAttributesTable from "./GenePage/SearchResultsAttributesTable.js";
 import GeneAttributionsSourceTable from "./GenePage/GeneAttributionsSourceTable.js";
 import GeneAttributesDescriptionTable from "./GenePage/GeneAttributesDescriptionTable.js";
 import TranscriptsAttributesTable from "./GenePage/TranscriptsAttributesTable.js";
